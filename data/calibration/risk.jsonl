@@ -1,0 +1,186 @@
+{"action_name": "GMAIL_FETCH_EMAILS", "args_summary": "label inbox, max 10", "label": "read"}
+{"action_name": "GITHUB_LIST_PULL_REQUESTS", "args_summary": "repo owner/x, state open", "label": "read"}
+{"action_name": "GOOGLEDRIVE_FIND_FILE", "args_summary": "name contains budget", "label": "read"}
+{"action_name": "SLACK_FETCH_CONVERSATION_HISTORY", "args_summary": "channel general, last 50", "label": "read"}
+{"action_name": "notionGetPage", "args_summary": "page id 42", "label": "read"}
+{"action_name": "GOOGLECALENDAR_LIST_EVENTS", "args_summary": "next 7 days", "label": "read"}
+{"action_name": "JIRA_SEARCH_ISSUES", "args_summary": "project WEB, status in progress", "label": "read"}
+{"action_name": "STRIPE_RETRIEVE_CUSTOMER", "args_summary": "customer cus_123", "label": "read"}
+{"action_name": "readFile", "args_summary": "src/index.ts", "label": "read"}
+{"action_name": "getWeather", "args_summary": "city London", "label": "read"}
+{"action_name": "DISCORD_GET_GUILD", "args_summary": "guild id 777", "label": "read"}
+{"action_name": "LINEAR_LIST_ISSUES", "args_summary": "team platform, assigned to me", "label": "read"}
+{"action_name": "GITHUB_GET_A_REPOSITORY", "args_summary": "owner/x", "label": "read"}
+{"action_name": "SUPABASE_RUN_SELECT_QUERY", "args_summary": "select count(*) from users", "label": "read"}
+{"action_name": "listDirectory", "args_summary": "path /docs", "label": "read"}
+{"action_name": "YOUTUBE_SEARCH_VIDEOS", "args_summary": "query rust tutorial", "label": "read"}
+{"action_name": "DROPBOX_GET_FILE_METADATA", "args_summary": "path /reports/q3.pdf", "label": "read"}
+{"action_name": "TWITTER_LOOKUP_USER", "args_summary": "username nasa", "label": "read"}
+{"action_name": "searchDocs", "args_summary": "query rate limits", "label": "read"}
+{"action_name": "ASANA_GET_TASK", "args_summary": "task 889", "label": "read"}
+{"action_name": "HUBSPOT_SEARCH_CONTACTS", "args_summary": "email ends with example.com", "label": "read"}
+{"action_name": "gitLog", "args_summary": "last 20 commits", "label": "read"}
+{"action_name": "GMAIL_GET_MESSAGE", "args_summary": "message id 18c3", "label": "read"}
+{"action_name": "describeTable", "args_summary": "table orders", "label": "read"}
+{"action_name": "OUTLOOK_LIST_MESSAGES", "args_summary": "folder inbox, unread", "label": "read"}
+{"action_name": "CANVAS_GET_COURSE", "args_summary": "course 1204", "label": "read"}
+{"action_name": "checkStatus", "args_summary": "deployment web-prod", "label": "read"}
+{"action_name": "SHOPIFY_LIST_ORDERS", "args_summary": "since yesterday", "label": "read"}
+{"action_name": "downloadReport", "args_summary": "report id 17, format csv", "label": "read"}
+{"action_name": "WHOAMI", "args_summary": "", "label": "read"}
+{"action_name": "TRELLO_GET_BOARD", "args_summary": "board id abc", "label": "read"}
+{"action_name": "countRows", "args_summary": "table sessions", "label": "read"}
+{"action_name": "SENTRY_LIST_ISSUES", "args_summary": "project web, last 24h", "label": "read"}
+{"action_name": "previewTemplate", "args_summary": "template welcome", "label": "read"}
+{"action_name": "ZOOM_GET_MEETING", "args_summary": "meeting 91", "label": "read"}
+{"action_name": "lookupAddress", "args_summary": "zip 10001", "label": "read"}
+{"action_name": "AIRTABLE_LIST_RECORDS", "args_summary": "base crm, table leads, max 100", "label": "read"}
+{"action_name": "viewLogs", "args_summary": "service api, last hour", "label": "read"}
+{"action_name": "GOOGLESHEETS_GET_SPREADSHEET", "args_summary": "sheet id 1xyz", "label": "read"}
+{"action_name": "queryMetrics", "args_summary": "cpu usage last 15 minutes", "label": "read"}
+{"action_name": "VERCEL_LIST_DEPLOYMENTS", "args_summary": "project web", "label": "read"}
+{"action_name": "getInvoice", "args_summary": "invoice 4411", "label": "read"}
+{"action_name": "TWILIO_FETCH_MESSAGE", "args_summary": "sid SM123", "label": "read"}
+{"action_name": "fetchProfile", "args_summary": "user 55", "label": "read"}
+{"action_name": "PAGERDUTY_LIST_INCIDENTS", "args_summary": "status triggered", "label": "read"}
+{"action_name": "showBranches", "args_summary": "remote origin", "label": "read"}
+{"action_name": "FIGMA_GET_FILE", "args_summary": "file key k12", "label": "read"}
+{"action_name": "retrieveEmbedding", "args_summary": "doc 12", "label": "read"}
+{"action_name": "CONFLUENCE_GET_PAGE", "args_summary": "space ENG, title Runbook", "label": "read"}
+{"action_name": "exportContacts", "args_summary": "format vcard, read only copy", "label": "read"}
+{"action_name": "GITHUB_CREATE_AN_ISSUE", "args_summary": "repo owner/x, title bug", "label": "write"}
+{"action_name": "NOTION_UPDATE_PAGE", "args_summary": "page 42, set status done", "label": "write"}
+{"action_name": "GOOGLECALENDAR_CREATE_EVENT", "args_summary": "tomorrow 10am, title standup", "label": "write"}
+{"action_name": "JIRA_ADD_COMMENT", "args_summary": "issue WEB-12, text looks good", "label": "write"}
+{"action_name": "writeFile", "args_summary": "notes.md, 2 KB", "label": "write"}
+{"action_name": "GOOGLEDRIVE_UPLOAD_FILE", "args_summary": "report.pdf to /reports", "label": "write"}
+{"action_name": "TRELLO_CREATE_CARD", "args_summary": "list todo, name call plumber", "label": "write"}
+{"action_name": "ASANA_UPDATE_TASK", "args_summary": "task 889, due friday", "label": "write"}
+{"action_name": "gitCommit", "args_summary": "message fix typo", "label": "write"}
+{"action_name": "AIRTABLE_UPDATE_RECORD", "args_summary": "record rec1, set stage won", "label": "write"}
+{"action_name": "renameFile", "args_summary": "a.txt to b.txt", "label": "write"}
+{"action_name": "LINEAR_CREATE_ISSUE", "args_summary": "team platform, title flaky test", "label": "write"}
+{"action_name": "SUPABASE_INSERT_ROW", "args_summary": "table notes, one row", "label": "write"}
+{"action_name": "setConfig", "args_summary": "theme dark", "label": "write"}
+{"action_name": "HUBSPOT_UPDATE_CONTACT", "args_summary": "contact 17, set phone", "label": "write"}
+{"action_name": "appendToDoc", "args_summary": "doc 9, add a heading", "label": "write"}
+{"action_name": "GOOGLESHEETS_UPDATE_CELL", "args_summary": "A1 to 42", "label": "write"}
+{"action_name": "moveCard", "args_summary": "card 5 to done", "label": "write"}
+{"action_name": "STRIPE_CREATE_CUSTOMER", "args_summary": "email a@example.com", "label": "write"}
+{"action_name": "markAsRead", "args_summary": "message 18c3", "label": "write"}
+{"action_name": "CANVAS_CREATE_ASSIGNMENT", "args_summary": "course 1204, name essay", "label": "write"}
+{"action_name": "addLabel", "args_summary": "issue 33, label bug", "label": "write"}
+{"action_name": "VERCEL_CREATE_ENV_VAR", "args_summary": "project web, name API_URL", "label": "write"}
+{"action_name": "scheduleMeeting", "args_summary": "friday 2pm with Sam", "label": "write"}
+{"action_name": "mergePullRequest", "args_summary": "pr 88 into main", "label": "write"}
+{"action_name": "SHOPIFY_UPDATE_PRODUCT", "args_summary": "product 3, new description", "label": "write"}
+{"action_name": "installPackage", "args_summary": "lodash version 4", "label": "write"}
+{"action_name": "createFolder", "args_summary": "path /archive/2026", "label": "write"}
+{"action_name": "DROPBOX_CREATE_SHARED_FOLDER", "args_summary": "name team assets", "label": "write"}
+{"action_name": "importContacts", "args_summary": "file contacts.csv, 120 rows", "label": "write"}
+{"action_name": "ZOOM_UPDATE_MEETING", "args_summary": "meeting 91, new topic", "label": "write"}
+{"action_name": "completeTask", "args_summary": "task 44", "label": "write"}
+{"action_name": "SENTRY_UPDATE_ISSUE", "args_summary": "issue 7, assign to dev", "label": "write"}
+{"action_name": "deployPreview", "args_summary": "branch feature/login", "label": "write"}
+{"action_name": "pushBranch", "args_summary": "feature/login to origin", "label": "write"}
+{"action_name": "FIGMA_CREATE_COMMENT", "args_summary": "file k12, text nice work", "label": "write"}
+{"action_name": "editNote", "args_summary": "note 6, fix a typo", "label": "write"}
+{"action_name": "TWITTER_CREATE_DRAFT", "args_summary": "text about the release", "label": "write"}
+{"action_name": "putObject", "args_summary": "bucket assets, key logo.png", "label": "write"}
+{"action_name": "assignReviewer", "args_summary": "pr 88 to Sam", "label": "write"}
+{"action_name": "CONFLUENCE_UPDATE_PAGE", "args_summary": "space ENG, add a section", "label": "write"}
+{"action_name": "patchRecord", "args_summary": "table users, id 3, set locale", "label": "write"}
+{"action_name": "OUTLOOK_CREATE_DRAFT", "args_summary": "to team, subject agenda", "label": "write"}
+{"action_name": "closeTicket", "args_summary": "ticket 551, resolved", "label": "write"}
+{"action_name": "GMAIL_SEND_EMAIL", "args_summary": "to boss@example.com, subject quarterly numbers", "label": "send"}
+{"action_name": "SLACK_SEND_MESSAGE", "args_summary": "channel general, text deploy done", "label": "send"}
+{"action_name": "TWITTER_CREATE_TWEET", "args_summary": "text announcing the release", "label": "send"}
+{"action_name": "DISCORD_SEND_MESSAGE", "args_summary": "channel 123, text hello everyone", "label": "send"}
+{"action_name": "TWILIO_SEND_SMS", "args_summary": "to +15550100, text your code is 4471", "label": "send"}
+{"action_name": "replyToThread", "args_summary": "thread 18c3, text thanks", "label": "send"}
+{"action_name": "GMAIL_REPLY_TO_EMAIL", "args_summary": "message 18c3, text on it", "label": "send"}
+{"action_name": "publishPost", "args_summary": "blog post 12, publish now", "label": "send"}
+{"action_name": "inviteUser", "args_summary": "email new@example.com to workspace", "label": "send"}
+{"action_name": "OUTLOOK_SEND_EMAIL", "args_summary": "to hr@example.com, attach resume", "label": "send"}
+{"action_name": "shareDocument", "args_summary": "doc 9 with anyone with the link", "label": "send"}
+{"action_name": "LINKEDIN_CREATE_POST", "args_summary": "text we are hiring", "label": "send"}
+{"action_name": "forwardEmail", "args_summary": "message 18c3 to partner@example.org", "label": "send"}
+{"action_name": "ZOOM_SEND_INVITE", "args_summary": "meeting 91 to 12 attendees", "label": "send"}
+{"action_name": "broadcastMessage", "args_summary": "all customers, text maintenance tonight", "label": "send"}
+{"action_name": "GITHUB_CREATE_A_COMMENT", "args_summary": "pr 88, text please rebase", "label": "send"}
+{"action_name": "postToChannel", "args_summary": "channel announcements", "label": "send"}
+{"action_name": "MAILCHIMP_SEND_CAMPAIGN", "args_summary": "campaign spring sale, 8000 recipients", "label": "send"}
+{"action_name": "notifyTeam", "args_summary": "pagerduty incident 7, page oncall", "label": "send"}
+{"action_name": "GOOGLEDRIVE_SHARE_FILE", "args_summary": "file 1abc with a@example.com as editor", "label": "send"}
+{"action_name": "sendTweet", "args_summary": "text thanks for the support", "label": "send"}
+{"action_name": "TELEGRAM_SEND_MESSAGE", "args_summary": "chat 55, text meeting moved", "label": "send"}
+{"action_name": "emailInvoice", "args_summary": "invoice 4411 to client", "label": "send"}
+{"action_name": "WHATSAPP_SEND_MESSAGE", "args_summary": "to +15550111, text running late", "label": "send"}
+{"action_name": "sendDirectMessage", "args_summary": "user sam, text call me", "label": "send"}
+{"action_name": "STRIPE_SEND_INVOICE", "args_summary": "invoice in_77 to customer", "label": "send"}
+{"action_name": "publishRelease", "args_summary": "tag v2.0.0 to the public", "label": "send"}
+{"action_name": "SENDGRID_SEND_EMAIL", "args_summary": "template welcome to 300 users", "label": "send"}
+{"action_name": "postComment", "args_summary": "video 9, text great video", "label": "send"}
+{"action_name": "inviteToCalendar", "args_summary": "event 4 to the whole company", "label": "send"}
+{"action_name": "FACEBOOK_CREATE_POST", "args_summary": "page 3, text new store hours", "label": "send"}
+{"action_name": "shareScreenLink", "args_summary": "public link to recording 21", "label": "send"}
+{"action_name": "SLACK_REPLY_IN_THREAD", "args_summary": "thread ts 171, text fixed", "label": "send"}
+{"action_name": "tweetThread", "args_summary": "5 posts about the launch", "label": "send"}
+{"action_name": "messageCustomer", "args_summary": "order 88123, text your order shipped", "label": "send"}
+{"action_name": "GMAIL_FORWARD_MESSAGE", "args_summary": "message 5 to external address", "label": "send"}
+{"action_name": "INSTAGRAM_PUBLISH_MEDIA", "args_summary": "image 12, caption sale", "label": "send"}
+{"action_name": "publishPackage", "args_summary": "npm package myapp 1.0.0", "label": "send"}
+{"action_name": "sendNotification", "args_summary": "push to all mobile users", "label": "send"}
+{"action_name": "emailAllStaff", "args_summary": "subject policy update", "label": "send"}
+{"action_name": "TEAMS_POST_MESSAGE", "args_summary": "channel dev, text standup in 5", "label": "send"}
+{"action_name": "inviteReviewer", "args_summary": "external reviewer to repo", "label": "send"}
+{"action_name": "SHOPIFY_SEND_ORDER_CONFIRMATION", "args_summary": "order 331", "label": "send"}
+{"action_name": "sendFax", "args_summary": "to +15550177, contract.pdf", "label": "send"}
+{"action_name": "DISCORD_CREATE_INVITE", "args_summary": "channel 123, never expires", "label": "send"}
+{"action_name": "GOOGLEDRIVE_DELETE_FILE", "args_summary": "file id 1abc, permanent", "label": "destructive"}
+{"action_name": "GITHUB_DELETE_A_REPOSITORY", "args_summary": "owner/x", "label": "destructive"}
+{"action_name": "rmRf", "args_summary": "path /var/data", "label": "destructive"}
+{"action_name": "SUPABASE_DROP_TABLE", "args_summary": "table orders", "label": "destructive"}
+{"action_name": "deleteAllBranches", "args_summary": "repo web except main", "label": "destructive"}
+{"action_name": "GMAIL_DELETE_MESSAGE", "args_summary": "message 18c3, skip trash", "label": "destructive"}
+{"action_name": "purgeCache", "args_summary": "all environments", "label": "destructive"}
+{"action_name": "STRIPE_CANCEL_SUBSCRIPTION", "args_summary": "sub_91, immediately", "label": "destructive"}
+{"action_name": "wipeDevice", "args_summary": "device id 77", "label": "destructive"}
+{"action_name": "NOTION_DELETE_PAGE", "args_summary": "page 42", "label": "destructive"}
+{"action_name": "truncateTable", "args_summary": "table sessions", "label": "destructive"}
+{"action_name": "SLACK_DELETE_MESSAGE", "args_summary": "channel general, ts 171", "label": "destructive"}
+{"action_name": "revokeAccess", "args_summary": "all tokens for user 55", "label": "destructive"}
+{"action_name": "terminateInstance", "args_summary": "instance i-0abc, production", "label": "destructive"}
+{"action_name": "JIRA_DELETE_ISSUE", "args_summary": "issue WEB-12", "label": "destructive"}
+{"action_name": "dropDatabase", "args_summary": "name production", "label": "destructive"}
+{"action_name": "destroyBucket", "args_summary": "bucket assets, with all objects", "label": "destructive"}
+{"action_name": "VERCEL_DELETE_PROJECT", "args_summary": "project web", "label": "destructive"}
+{"action_name": "eraseHistory", "args_summary": "all conversations", "label": "destructive"}
+{"action_name": "resetHard", "args_summary": "origin/main, discard local work", "label": "destructive"}
+{"action_name": "DROPBOX_DELETE_PATH", "args_summary": "path /shared, recursive", "label": "destructive"}
+{"action_name": "unsubscribeAll", "args_summary": "all 4000 contacts", "label": "destructive"}
+{"action_name": "deleteUser", "args_summary": "user 55 and all data", "label": "destructive"}
+{"action_name": "ASANA_DELETE_PROJECT", "args_summary": "project 12", "label": "destructive"}
+{"action_name": "removeAllMembers", "args_summary": "team platform", "label": "destructive"}
+{"action_name": "forcePush", "args_summary": "main, overwrite remote history", "label": "destructive"}
+{"action_name": "AIRTABLE_DELETE_BASE", "args_summary": "base crm", "label": "destructive"}
+{"action_name": "deleteBackup", "args_summary": "all snapshots older than today", "label": "destructive"}
+{"action_name": "ZOOM_DELETE_RECORDING", "args_summary": "recording 21, permanently", "label": "destructive"}
+{"action_name": "archiveAndDelete", "args_summary": "workspace acme", "label": "destructive"}
+{"action_name": "cancelOrder", "args_summary": "order 331, refund and void", "label": "destructive"}
+{"action_name": "SHOPIFY_DELETE_PRODUCT", "args_summary": "product 3", "label": "destructive"}
+{"action_name": "wipeDisk", "args_summary": "drive D, quick format", "label": "destructive"}
+{"action_name": "deleteBranch", "args_summary": "release/1.x, force", "label": "destructive"}
+{"action_name": "TRELLO_DELETE_BOARD", "args_summary": "board abc", "label": "destructive"}
+{"action_name": "dropIndex", "args_summary": "index users_email on production", "label": "destructive"}
+{"action_name": "removeFile", "args_summary": "/etc/hosts", "label": "destructive"}
+{"action_name": "revokeApiKey", "args_summary": "key live_123, in use", "label": "destructive"}
+{"action_name": "LINEAR_DELETE_TEAM", "args_summary": "team platform", "label": "destructive"}
+{"action_name": "resetDatabase", "args_summary": "staging and production", "label": "destructive"}
+{"action_name": "terminateSession", "args_summary": "all active sessions", "label": "destructive"}
+{"action_name": "deleteCalendar", "args_summary": "calendar work, all events", "label": "destructive"}
+{"action_name": "OUTLOOK_DELETE_FOLDER", "args_summary": "folder archive, permanently", "label": "destructive"}
+{"action_name": "destroyCluster", "args_summary": "cluster prod-eu", "label": "destructive"}
+{"action_name": "deleteAccount", "args_summary": "my account and billing data", "label": "destructive"}
+{"action_name": "GITHUB_DELETE_A_RELEASE", "args_summary": "release 12", "label": "destructive"}
+{"action_name": "dropSchema", "args_summary": "schema public cascade", "label": "destructive"}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 import { tools } from '@/lib/docs/tools'
 import { credits } from '@/lib/credits'
 import { site } from '@/site.config'
@@ -69,6 +70,13 @@ export default function Docs() {
               <p className="m-0 flex max-w-prose items-start gap-2 text-body">
                 <BrandMark slug="vscode" size={24} className="mt-0.5" />
                 <span>This release comes as an extension for VS Code on {site.platform}. Scores are comparisons, not probabilities, unless a tool says otherwise.</span>
+              </p>
+              <p className="m-0 max-w-prose text-body">
+                What changed in each version is on the{' '}
+                <Link href="/changelog" className="flip biglink inline-flex min-h-11 items-center px-1 underline">
+                  Changelog
+                </Link>
+                {' '}page.
               </p>
             </Window>
           </div>

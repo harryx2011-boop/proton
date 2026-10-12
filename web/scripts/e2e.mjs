@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright'
 import { mkdirSync } from 'node:fs'
 
 const [base = 'http://127.0.0.1:5800', out = './e2e-out'] = process.argv.slice(2)
-const pages = ['/', '/download', '/docs', '/benchmarks', '/faq']
+const pages = ['/', '/download', '/docs', '/benchmarks', '/changelog', '/faq']
 const widths = [390, 1440]
 mkdirSync(out, { recursive: true })
 

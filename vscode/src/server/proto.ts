@@ -6,6 +6,7 @@ const TEXT: string = DATA.text_prefix;
 const EXAMPLE: string = DATA.example_prefix;
 export const TEMP = Number(process.env.PROTON_PROTO_TEMP || DATA.temperature);
 export const HEADS: Record<string, string[]>[] = Object.values(DATA.heads);
+const HEAD_ENTRIES: [string, Record<string, string[]>][] = Object.entries(DATA.heads);
 export const RISK: Record<string, string[]> = DATA.risk;
 export type Protos = Record<string, string | string[]>;
 
@@ -31,9 +32,28 @@ async function prototype(examples: string[]): Promise<Float32Array> {
   return m.map((x) => x / n);
 }
 
+const qcache = new Map<string, Float32Array>();
+
+/** e5 query vectors for texts, one batched run for the ones not seen yet.
+ *  ponytail: cleared at 256 entries instead of an LRU; a miss only costs one more embed. */
+export async function queries(texts: string[]): Promise<Float32Array[]> {
+  const keys = texts.map((t) => TEXT + String(t));
+  if (qcache.size > 256) qcache.clear();
+  const have = new Map<string, Float32Array>();
+  for (const k of keys) if (qcache.has(k)) have.set(k, qcache.get(k)!);
+  const miss = [...new Set(keys.filter((k) => !have.has(k)))];
+  if (miss.length) {
+    (await embed('e5', miss)).forEach((v, i) => {
+      qcache.set(miss[i], v);
+      have.set(miss[i], v);
+    });
+  }
+  return keys.map((k) => have.get(k)!);
+}
+
 /** Cosine of each text (rows) to each label prototype (columns). */
 export async function similarities(texts: string[], protos: Protos): Promise<number[][]> {
-  const q = await embed('e5', texts.map((t) => TEXT + String(t)));
+  const q = await queries(texts);
   const p = await Promise.all(Object.values(protos).map((ex) => prototype(Array.isArray(ex) ? ex : [ex])));
   return q.map((v) => p.map((w) => dot(v, w)));
 }
@@ -58,4 +78,10 @@ export function head(labels: string[]): Record<string, string[]> | undefined {
     const ks = Object.keys(h);
     return ks.length === want.size && ks.every((k) => want.has(k));
   });
+}
+
+/** Name of the fixed head with these labels (e.g. "injection"), if any. */
+export function headName(labels: string[]): string | undefined {
+  const h = head(labels);
+  return h && HEAD_ENTRIES.find(([, v]) => v === h)?.[0];
 }

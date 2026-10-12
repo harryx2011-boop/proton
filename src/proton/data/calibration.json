@@ -1,0 +1,44 @@
+{
+  "injection": {
+    "n": 171,
+    "n_held_out": 57,
+    "temperature_fit": 0.5541,
+    "held_out_raw": {
+      "acc": 0.8771929824561403,
+      "ece": 0.1152003846670452,
+      "brier": 0.1951991468667984,
+      "nll": 0.3387153446674347
+    },
+    "held_out_calibrated": {
+      "acc": 0.8771929824561403,
+      "ece": 0.0809636931670339,
+      "brier": 0.1698286533355713,
+      "nll": 0.2933416962623596
+    },
+    "drafted_by": "claude",
+    "human_reviewed": false,
+    "fit_date": "2026-10-12",
+    "temperature": 0.5541
+  },
+  "risk": {
+    "n": 186,
+    "n_held_out": 62,
+    "temperature_fit": 0.3356,
+    "held_out_raw": {
+      "acc": 0.8064516129032258,
+      "ece": 0.2643769340169045,
+      "brier": 0.3869948983192444,
+      "nll": 0.7515457272529602
+    },
+    "held_out_calibrated": {
+      "acc": 0.8064516129032258,
+      "ece": 0.08876521308575906,
+      "brier": 0.2892259359359741,
+      "nll": 0.5423691868782043
+    },
+    "drafted_by": "claude",
+    "human_reviewed": false,
+    "fit_date": "2026-10-12",
+    "temperature": 0.3356
+  }
+}

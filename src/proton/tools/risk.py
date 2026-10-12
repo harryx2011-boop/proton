@@ -1,7 +1,8 @@
 import asyncio
 import re
 
-from .. import proto
+from .. import confidence, proto
+from ..decide import CAL, TH
 
 CLASSES = proto.RISK
 ORDER = list(CLASSES)
@@ -26,7 +27,7 @@ def lexical(action_name: str):
     return None
 
 
-def run(action_name: str, args_summary: str):
+def run(action_name: str, args_summary: str, thresholds=None):
     text = f"{action_name} {args_summary}".replace("_", " ").replace("-", " ")
     p = proto.classify(text, CLASSES)
     label = max(p, key=p.get)
@@ -34,16 +35,27 @@ def run(action_name: str, args_summary: str):
     floor, source = lexical(action_name), "model"
     if floor and ORDER.index(floor) > ORDER.index(label):
         label, source = floor, "lexical"
-    return {"risk": label, "score": score, "source": source, "ranked": sorted(p.items(), key=lambda kv: kv[1], reverse=True)}
+    margin, ratio = confidence.margin_ratio(p)
+    t = CAL.get("risk", {}).get("temperature")
+    th = confidence.thresholds_for(label, thresholds, TH)
+    cal = confidence.temper(p, t)[label] if t else None
+    basis = "raw" if cal is None else "calibrated"
+    return {"risk": label, "score": score, "source": source, "ranked": sorted(p.items(), key=lambda kv: kv[1], reverse=True),
+            "confidence_norm": confidence.norm(p[label], len(p)), "margin": margin, "ratio": ratio,
+            "rule_overrode": source == "lexical", "calibrated": cal,
+            "gate_basis": basis, "action": confidence.gate(p[label] if cal is None else cal, th)}
 
 
 def register(mcp, decide):
     @mcp.tool()
-    async def risk(action_name: str, args_summary: str = "") -> dict:
+    async def risk(action_name: str, args_summary: str = "", thresholds: dict | None = None) -> dict:
         """Classify a tool action as read, write, send or destructive (for a PreToolUse guard).
 
         action_name is the tool or action id (e.g. GMAIL_SEND_EMAIL); args_summary is a short line of
         its arguments. A model verdict is raised, never lowered, when the name carries a mutating verb
         (source: "lexical"). Anything above read should ask the user.
+
+        `action` is act, confirm or ask_person from the verdict's probability against the thresholds of the
+        verdict's own class; `thresholds` {act, review} overrides them.
         """
-        return await asyncio.to_thread(run, action_name, args_summary)
+        return await asyncio.to_thread(run, action_name, args_summary, thresholds)

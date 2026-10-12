@@ -12,7 +12,7 @@ from mcp.server.fastmcp import FastMCP
 from mcp.server.stdio import stdio_server
 
 from proton import identity, models
-from proton.decide import decide as _decide
+from proton.decide import decide as _decide, decide_many as _decide_many
 
 mcp = FastMCP("proton")
 
@@ -30,7 +30,7 @@ def _warm(preload):
 
 
 @mcp.tool()
-async def decide(text: str, heads: dict, rules: list[dict] | None = None) -> dict:
+async def decide(text: str, heads: dict, rules: list[dict] | None = None, thresholds: dict | None = None, risk: str | None = None) -> dict:
     """Make typed decisions about text with small local CPU encoders (no generation).
 
     heads: {name: [labels]} for single-label, or {name: {"labels": [...] or {label: description},
@@ -39,19 +39,24 @@ async def decide(text: str, heads: dict, rules: list[dict] | None = None) -> dic
     {"implies": ["head=label", "head=label"]}, {"excludes": [...]}, {"iff": [...]}, or a raw dict
     ({"type": "Implies"|"Iff"|"Excludes"|"And"|"Or"|"Not"|"LabelRef", ...}). The answer is the best
     joint assignment over each head's top labels that satisfies every rule; `feasible` says whether one existed.
+    Each decision also carries confidence_norm, margin, ratio, rule_overrode, calibrated (null when the head has no
+    calibration), gate_basis and action (act, confirm or ask_person). The action compares the calibrated
+    probability, else the raw confidence, with `thresholds` {act, review}, else the row for `risk`
+    (read, write, send or destructive; default write). Infeasible rules force ask_person.
     Not a reasoner: it cannot explain or answer open questions.
     """
-    return await asyncio.to_thread(_decide, text, heads, rules)
+    return await asyncio.to_thread(_decide, text, heads, rules, thresholds, risk)
 
 
 @mcp.tool()
-async def decide_batch(texts: list[str], heads: dict, rules: list[dict] | None = None) -> dict:
+async def decide_batch(texts: list[str], heads: dict, rules: list[dict] | None = None, thresholds: dict | None = None, risk: str | None = None) -> dict:
     """decide() over many texts with one schema; returns {"results": [decide() output, ...]} in input order."""
-    return {"results": await asyncio.to_thread(lambda: [_decide(t, heads, rules) for t in texts])}
+    return {"results": await asyncio.to_thread(lambda: _decide_many(texts, heads, rules, thresholds, risk))}
 
 
-from proton.tools import locate_skill, rank, risk, triage  # noqa: E402
+from proton.tools import ask, locate_skill, rank, risk, triage  # noqa: E402
 
+ask.register(mcp, _decide)
 locate_skill.register(mcp, _decide)
 rank.register(mcp, _decide)
 triage.register(mcp, _decide)

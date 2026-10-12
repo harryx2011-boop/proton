@@ -17,8 +17,8 @@ Source of truth: `app/globals.css`. Themes: single, light blue field with black 
 | token | value | use | source |
 | --- | --- | --- | --- |
 | `--font-sans` | `var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif` | headlines and body (Inter Tight, loaded by next/font) | `app/globals.css:13` |
-| `--font-pixel` | `'VT323', ui-monospace, 'Cascadia Mono', monospace` | window title bars, big numerals | `app/globals.css:14` |
-| `--font-mono` | `'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', monospace` | code and raw replies | `app/globals.css:15` |
+| `--font-pixel` | `var(--font-vt323), ui-monospace, 'Cascadia Mono', monospace` | window title bars, big numerals | `app/globals.css:14` |
+| `--font-mono` | `var(--font-jetbrains), ui-monospace, 'Cascadia Mono', monospace` | code and raw replies | `app/globals.css:15` |
 | `--text-caption` | `0.875rem` | captions, table text, small controls | `app/globals.css:18` |
 | `--text-body` | `1.0625rem` | body copy | `app/globals.css:20` |
 | `--text-lead` | `1.375rem` | intro paragraphs | `app/globals.css:22` |

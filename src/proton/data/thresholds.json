@@ -1,0 +1,21 @@
+{
+ "table": {
+  "read": {
+   "act": 0.6,
+   "review": 0.4
+  },
+  "write": {
+   "act": 0.8,
+   "review": 0.6
+  },
+  "send": {
+   "act": 0.9,
+   "review": 0.7
+  },
+  "destructive": {
+   "act": 0.95,
+   "review": 0.85
+  }
+ },
+ "default": "write"
+}

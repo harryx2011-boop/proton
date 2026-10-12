@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
-import { useInView, useReducedMotion } from 'framer-motion'
+import { useInView, useReducedMotion } from '@/lib/retro/useViewState'
 import type { View } from '@/lib/demo/view'
 import { Mark } from '@/components/Mark'
 
@@ -44,7 +44,7 @@ function useCountUp(target: number, run: boolean, reduce: boolean | null) {
 export function Demo({ items }: { items: DemoItem[] }) {
   const reduce = useReducedMotion()
   const box = useRef<HTMLDivElement>(null)
-  const inView = useInView(box, { amount: 0.35 })
+  const inView = useInView(box, 0.35)
   const [active, setActive] = useState(0)
   const [typed, setTyped] = useState(items[0].prompt.length)
   const [playing, setPlaying] = useState(true)

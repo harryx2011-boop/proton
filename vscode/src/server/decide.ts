@@ -1,11 +1,14 @@
 // decide(): per-head label probabilities, then the best joint assignment that satisfies the rules.
 // A port of src/proton/decide.py: fixed heads (data/prototypes.json) go to e5 prototypes, any other head to
 // GLiClass; rules are checked after scoring over each head's top labels.
-import { gliclassLogits } from './models';
+import { gate, marginRatio, norm, temper, thresholdsFor, type ThresholdTable } from './confidence';
+import { data, gliclassLogits } from './models';
 import * as proto from './proto';
 
 const TOP = 4; // labels per single-label head kept for the joint search
 const FLIPS = 3; // labels nearest 0.5 a multi-label head may flip in the joint search
+const TH: ThresholdTable = data('thresholds.json'); // per risk class {act, review}; a caller can override
+const CAL: Record<string, { temperature?: number }> = data('calibration.json'); // written by scripts/calibrate.py
 
 type HeadSpec = string[] | { labels: string[] | Record<string, string>; multi_label?: boolean };
 type Probs = Record<string, number>;
@@ -115,7 +118,8 @@ function* product(lists: Option[][], i = 0, acc: Option[] = []): Generator<Optio
   for (const o of lists[i]) yield* product(lists, i + 1, [...acc, o]);
 }
 
-export async function decide(text: string, heads: Record<string, HeadSpec>, rules?: Rule[] | null) {
+export async function decide(text: string, heads: Record<string, HeadSpec>, rules?: Rule[] | null, thresholds?: unknown, risk?: string | null) {
+  const th = thresholdsFor(risk, thresholds, TH);
   const specs = Object.fromEntries(Object.entries(heads).map(([n, s]) => [n, spec(s)]));
   const names = Object.keys(specs);
   const probs: Record<string, Probs> = {};
@@ -147,13 +151,40 @@ export async function decide(text: string, heads: Record<string, HeadSpec>, rule
     const [labels, , multi] = specs[n];
     const p = probs[n];
     const chosen = best[n];
+    const overrode = ![...chosen].every((l) => opts[n][0][0].has(l)) || chosen.size !== opts[n][0][0].size;
     if (multi) {
       const conf = Math.exp(labels.reduce((acc, l) => acc + ln(chosen.has(l) ? p[l] : 1 - p[l]), 0) / labels.length);
-      decisions[n] = { labels: labels.filter((l) => chosen.has(l)), confidence: conf, probabilities: p };
+      decisions[n] = {
+        labels: labels.filter((l) => chosen.has(l)), confidence: conf, probabilities: p,
+        confidence_norm: null, margin: null, ratio: null, rule_overrode: overrode, calibrated: null,
+      };
     } else {
       const [lab] = chosen;
-      decisions[n] = { label: lab, confidence: p[lab], probabilities: p };
+      const [margin, ratio] = marginRatio(p);
+      const name = proto.headName(labels);
+      const t = name ? CAL[name]?.temperature : undefined;
+      decisions[n] = {
+        label: lab, confidence: p[lab], probabilities: p,
+        confidence_norm: norm(p[lab], labels.length), margin, ratio, rule_overrode: overrode,
+        calibrated: t ? temper(p, t)[lab] : null,
+      };
     }
   }
+  for (const d of Object.values(decisions) as Record<string, any>[]) {
+    const raw = d.calibrated === null;
+    d.gate_basis = raw ? 'raw' : 'calibrated';
+    d.action = feasible ? gate(raw ? d.confidence : d.calibrated, th) : 'ask_person';
+  }
   return { decisions, feasible, violations };
+}
+
+/** decide() over many texts with one schema; the prototype-scored heads read all texts in one batched e5 run. */
+export async function decideMany(texts: string[], heads: Record<string, HeadSpec>, rules?: Rule[] | null, thresholds?: unknown, risk?: string | null) {
+  if (Object.values(heads).some((s) => {
+    const [labels, , multi] = spec(s);
+    return !multi && proto.head(labels);
+  })) await proto.queries(texts);
+  const results = [];
+  for (const t of texts) results.push(await decide(t, heads, rules, thresholds, risk));
+  return results;
 }

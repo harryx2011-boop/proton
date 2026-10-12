@@ -11,8 +11,8 @@
   --color-well: #e6e6e6;
 
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
-  --font-pixel: 'VT323', ui-monospace, 'Cascadia Mono', monospace;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', monospace;
+  --font-pixel: var(--font-vt323), ui-monospace, 'Cascadia Mono', monospace;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'Cascadia Mono', monospace;
 
   --text-*: initial;
   --text-caption: 0.875rem;

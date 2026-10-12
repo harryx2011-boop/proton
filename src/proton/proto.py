@@ -4,6 +4,7 @@ description); a text's probabilities are a softmax over its cosine to each proto
 e5 cosines sit in a narrow band (about 0.7-0.9), so the softmax runs at a low temperature.
 """
 import os
+import threading
 from functools import lru_cache
 
 import numpy as np
@@ -15,6 +16,7 @@ TEXT, EXAMPLE = _DATA["text_prefix"], _DATA["example_prefix"]
 TEMP = float(os.environ.get("PROTON_PROTO_TEMP") or _DATA["temperature"])
 # fixed heads decide() scores here, keyed by their label set
 HEADS = {frozenset(h): h for h in _DATA["heads"].values()}
+HEAD_NAMES = {frozenset(h): n for n, h in _DATA["heads"].items()}
 RISK = _DATA["risk"]
 
 
@@ -29,9 +31,25 @@ def prototype(examples):
     return v / np.linalg.norm(v)
 
 
+_Q, _QLOCK = {}, threading.Lock()
+
+
+def queries(texts):
+    """e5 query vectors for texts, one batched run for the ones not seen yet.
+    ponytail: cleared at 256 entries instead of an LRU; a miss only costs one more embed."""
+    keys = [TEXT + str(t) for t in texts]
+    with _QLOCK:
+        if len(_Q) > 256:
+            _Q.clear()
+        miss = list(dict.fromkeys(k for k in keys if k not in _Q))
+        if miss:
+            _Q.update(zip(miss, models.embed("e5", miss)))
+        return np.stack([_Q[k] for k in keys])
+
+
 def similarities(texts, protos):
     """Cosine of each text (rows) to each label prototype (columns)."""
-    q = models.embed("e5", [TEXT + str(t) for t in texts])
+    q = queries(texts)
     return q @ np.stack([prototype(ex if isinstance(ex, (list, tuple)) else [ex]) for ex in protos.values()]).T
 
 

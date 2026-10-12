@@ -4,9 +4,10 @@
 
 Proton is a local server of three small CPU models that makes fast decisions for AI agents. An agent calls it over MCP to check text for hidden instructions, pick the right skill for a task, rate the risk of an action, or sort and rank a list. A call takes tens of milliseconds, runs without a GPU, and sends nothing off the machine.
 
-The server exposes six MCP tools:
+The server exposes seven MCP tools:
 
 - `decide` and `decide_batch`: classify text against any set of labels, with optional logic rules between labels.
+- `ask`: answer several named questions about one text in one call. A question is a choice, a yes or no, or a level on an ordered scale.
 - `locate_skill`: route a task to the best-matching skill or agent from a catalog.
 - `rank`: order texts by how well they match a criterion.
 - `triage`: sort items into named buckets.
@@ -57,12 +58,25 @@ Any MCP client that speaks streamable HTTP can use the same URL. Small clients t
 
 Full argument and response reference: <https://proton-labs.vercel.app/docs>.
 
-- `decide(text, heads, rules?)`: one decision per head, with confidence and probabilities. Rules (`implies`, `excludes`, `iff`) pick the best joint assignment.
-- `decide_batch(texts, heads, rules?)`: the same over many texts.
+- `decide(text, heads, rules?, thresholds?, risk?)`: one decision per head, with confidence and probabilities. Rules (`implies`, `excludes`, `iff`) pick the best joint assignment.
+- `decide_batch(texts, heads, rules?, thresholds?, risk?)`: the same over many texts. The prototype-scored heads read all texts in one batched run.
+- `ask(state, questions, rules?, thresholds?, risk?)`: `questions` is `{name: question}`. A question is `{"type": "choice", "labels": [...]}`, `{"type": "noul", "criteria": "..."}` (yes or no, with the probability of yes) or `{"type": "score", "levels": [...ordered...]}`.
 - `locate_skill(task, top_k?, kinds?, project?)`: ranked picks from a skill catalog. The catalog is a JSON file; by default `skill-catalog.json` in the state folder; set `PROTON_SKILL_CATALOG` to use another path.
 - `rank(texts, criterion)`: texts sorted by similarity to the criterion.
 - `triage(items, labels)`: a bucket, a score and the top three buckets for each item.
-- `risk(action_name, args_summary)`: `read`, `write`, `send` or `destructive`.
+- `risk(action_name, args_summary, thresholds?)`: `read`, `write`, `send` or `destructive`.
+
+Every decision carries, besides `label`, `confidence` and `probabilities`:
+
+| Field | Meaning |
+|---|---|
+| `confidence_norm` | `(k * p_top - 1) / (k - 1)` for k labels: 0 for an even spread, 1 for certainty. |
+| `margin`, `ratio` | Top probability minus the second, and second over top. |
+| `rule_overrode` | True when the rules forced a label other than the head's own top label. |
+| `calibrated` | The top probability after temperature scaling, for the injection and risk heads; `null` for other heads. The fit is documented in `scripts/calibrate.py`; its labelled sets are small and were drafted by the author. |
+| `gate_basis`, `action` | `act`, `confirm` or `ask_person`: the calibrated probability (else the raw confidence) against `thresholds {act, review}`, else the row for `risk` (`read`, `write`, `send` or `destructive`; default `write`). Infeasible rules always give `ask_person`. |
+
+Defaults are in `src/proton/data/thresholds.json`. They are starting values, not tuned guarantees.
 
 ## Run From Source
 

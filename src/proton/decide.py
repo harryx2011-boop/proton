@@ -9,10 +9,12 @@ import math
 
 import numpy as np
 
-from . import models, proto
+from . import confidence, models, proto
 
 TOP = 4  # labels per single-label head kept for the joint search
 FLIPS = 3  # labels nearest 0.5 a multi-label head may flip in the joint search
+TH = models.data("thresholds.json")  # per risk class {act, review}; a caller can override
+CAL = models.data("calibration.json")  # {head name: {"temperature": t, ...}}, written by scripts/calibrate.py
 
 
 def _spec(spec):
@@ -74,7 +76,8 @@ def _options(probs, multi):
     return sorted(out, key=lambda o: -o[1])
 
 
-def decide(text, heads, rules=None):
+def decide(text, heads, rules=None, thresholds=None, risk=None):
+    th = confidence.thresholds_for(risk, thresholds, TH)
     specs = {n: _spec(s) for n, s in heads.items()}
     probs = {n: head_probs(text, l, d, m) for n, (l, d, m) in specs.items()}
     opts = {n: _options(probs[n], specs[n][2]) for n in specs}
@@ -96,10 +99,27 @@ def decide(text, heads, rules=None):
     out = {}
     for n, (labels, _, multi) in specs.items():
         p, chosen = probs[n], best[n]
+        overrode = chosen != opts[n][0][0]
         if multi:
             conf = math.exp(sum(math.log(max(p[l] if l in chosen else 1 - p[l], 1e-12)) for l in labels) / len(labels))
-            out[n] = {"labels": [l for l in labels if l in chosen], "confidence": conf, "probabilities": p}
+            out[n] = {"labels": [l for l in labels if l in chosen], "confidence": conf, "probabilities": p,
+                      "confidence_norm": None, "margin": None, "ratio": None, "rule_overrode": overrode, "calibrated": None}
         else:
             (lab,) = chosen
-            out[n] = {"label": lab, "confidence": p[lab], "probabilities": p}
+            margin, ratio = confidence.margin_ratio(p)
+            t = CAL.get(proto.HEAD_NAMES.get(frozenset(labels)), {}).get("temperature")
+            out[n] = {"label": lab, "confidence": p[lab], "probabilities": p,
+                      "confidence_norm": confidence.norm(p[lab], len(labels)), "margin": margin, "ratio": ratio,
+                      "rule_overrode": overrode, "calibrated": confidence.temper(p, t)[lab] if t else None}
+    for d in out.values():
+        basis = "raw" if d["calibrated"] is None else "calibrated"
+        d["gate_basis"] = basis
+        d["action"] = confidence.gate(d["confidence"] if basis == "raw" else d["calibrated"], th) if feasible else "ask_person"
     return {"decisions": out, "feasible": feasible, "violations": violations}
+
+
+def decide_many(texts, heads, rules=None, thresholds=None, risk=None):
+    """decide() over many texts with one schema; the prototype-scored heads read all texts in one batched e5 run."""
+    if any(not m and frozenset(l) in proto.HEADS for l, _, m in (_spec(s) for s in heads.values())):
+        proto.queries(texts)
+    return [decide(t, heads, rules, thresholds, risk) for t in texts]

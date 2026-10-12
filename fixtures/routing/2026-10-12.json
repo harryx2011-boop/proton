@@ -1,0 +1,1140 @@
+{
+ "meta": {
+  "date": "2026-10-12",
+  "model": "qwen3.5:2b",
+  "proton_url": "http://127.0.0.1:9400/mcp",
+  "catalog_hash": "d34f705dc90ff867",
+  "catalog_size": 82,
+  "tasks": 28,
+  "permutation": {
+   "agreement": 0.9,
+   "per_text": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.5,
+    1.0,
+    0.16666666666666666,
+    1.0,
+    1.0,
+    0.6666666666666666,
+    1.0,
+    1.0,
+    0.6666666666666666,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "orders_per_text": 6
+  }
+ },
+ "results": {
+  "proton": [
+   {
+    "task": "write a changelog for the release",
+    "picks": [
+     "pr-summarizer",
+     "prod-logs-health-check",
+     "visual-designer"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "commit these changes and push",
+    "picks": [
+     "commit",
+     "cloud",
+     "deploy-with-verification"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make a promo video with motion graphics",
+    "picks": [
+     "video",
+     "heartrate-overlay-sync",
+     "canvas-design"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "review my diff for bugs",
+    "picks": [
+     "code-reviewer",
+     "requesting-code-review",
+     "config-drift"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "fix this stack trace",
+    "picks": [
+     "systematic-debugging",
+     "debugger",
+     "diagnosing-superpowers"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "find my note about the ports",
+    "picks": [
+     "qmd",
+     "synapse-graph",
+     "computer-use"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "scrape this web page",
+    "picks": [
+     "pdf",
+     "general-purpose",
+     "docx"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "set up Clerk authentication",
+    "picks": [
+     "backend",
+     "api-management",
+     "website-production"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "design a landing page layout",
+    "picks": [
+     "canvas-design",
+     "Plan",
+     "visual-designer"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "package the electron app installer",
+    "picks": [
+     "desktop",
+     "computer-use",
+     "frontend-security-coder"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "research and compare two libraries with sources",
+    "picks": [
+     "deep-research",
+     "deep-research",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "run the unit tests",
+    "picks": [
+     "test-writer",
+     "writing-skills",
+     "test-runner"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "write a pull request description",
+    "picks": [
+     "pr-summarizer",
+     "brainstorming",
+     "skill-creator"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "turn this into a Word document",
+    "picks": [
+     "docx",
+     "docs",
+     "xlsx"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build an MCP server",
+    "picks": [
+     "mcp-builder",
+     "mcp-builder",
+     "Plan"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make this skill better",
+    "picks": [
+     "skill-creator",
+     "skill-creator",
+     "using-superpowers"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "plan the implementation steps",
+    "picks": [
+     "Plan",
+     "writing-plans",
+     "executing-plans"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "brainstorm feature ideas",
+    "picks": [
+     "brainstormer",
+     "brainstorming",
+     "using-superpowers"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "remember this insight for later",
+    "picks": [
+     "save-learning",
+     "context-manager",
+     "qmd"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "talk like a caveman to save tokens",
+    "picks": [
+     "caveman",
+     "usage-limit-reducer",
+     "vulcan"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "threat model for our API",
+    "picks": [
+     "threat-modeling-expert",
+     "api-management",
+     "frontend-security-coder"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make the react page render faster",
+    "picks": [
+     "performance-optimizer",
+     "performance-optimizer",
+     "frontend-security-coder"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a regression test for this bug",
+    "picks": [
+     "test-writer",
+     "test-driven-development",
+     "systematic-debugging"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "extract text from a PDF file",
+    "picks": [
+     "pdf",
+     "docx",
+     "sparky"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build a spreadsheet",
+    "picks": [
+     "xlsx",
+     "google-workspace",
+     "skill-creator"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "prepare the site for launch with SEO",
+    "picks": [
+     "website-production",
+     "helix",
+     "Plan"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "verify the deploy is live",
+    "picks": [
+     "deploy-with-verification",
+     "verification-before-completion",
+     "prod-logs-health-check"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "be lazy and write the simplest code",
+    "picks": [
+     "ponytail",
+     "karpathy-guidelines",
+     "test-driven-development"
+    ],
+    "top1": true,
+    "top3": true
+   }
+  ],
+  "baseline": [
+   {
+    "task": "write a changelog for the release",
+    "picks": [
+     "pr-summarizer"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "commit these changes and push",
+    "picks": [
+     "commit",
+     "deploy-with-verification"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make a promo video with motion graphics",
+    "picks": [
+     "video",
+     "visual-designer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "review my diff for bugs",
+    "picks": [
+     "code-reviewer",
+     "debugger",
+     "systematic-debugging"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "fix this stack trace",
+    "picks": [
+     "debugger",
+     "systematic-debugging",
+     "diagnosing-superpowers"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "find my note about the ports",
+    "picks": [
+     "web-tools",
+     "pdf",
+     "general-purpose"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "scrape this web page",
+    "picks": [
+     "web-artifacts-builder",
+     "website-production",
+     "performance-optimizer"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "set up Clerk authentication",
+    "picks": [
+     "backend",
+     "backend-architect",
+     "global-audit"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "design a landing page layout",
+    "picks": [
+     "frontend",
+     "visual-designer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "package the electron app installer",
+    "picks": [
+     "desktop",
+     "frontend",
+     "deploy-with-verification"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "research and compare two libraries with sources",
+    "picks": [
+     "deep-research",
+     "general-purpose",
+     "synapse-graph"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "run the unit tests",
+    "picks": [
+     "test-runner",
+     "test-writer",
+     "test-driven-development"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a pull request description",
+    "picks": [
+     "pr-summarizer",
+     "requesting-code-review",
+     "code-reviewer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "turn this into a Word document",
+    "picks": [
+     "docs",
+     "pdf",
+     "pptx"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "build an MCP server",
+    "picks": [
+     "mcp-builder",
+     "general-purpose",
+     "deploy-with-verification"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make this skill better",
+    "picks": [
+     "brainstormer",
+     "backend-architect",
+     "code-reviewer"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "plan the implementation steps",
+    "picks": [
+     "backend-architect",
+     "brainstormer",
+     "dispatching-parallel-agents"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "brainstorm feature ideas",
+    "picks": [
+     "brainstormer",
+     "brainstorming",
+     "writing-plans"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "remember this insight for later",
+    "picks": [
+     "brainstormer",
+     "brainstorming",
+     "general-purpose"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "talk like a caveman to save tokens",
+    "picks": [
+     "caveman"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "threat model for our API",
+    "picks": [
+     "threat-modeling-expert",
+     "backend-architect",
+     "api-management"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make the react page render faster",
+    "picks": [
+     "performance-optimizer",
+     "frontend",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a regression test for this bug",
+    "picks": [
+     "test-driven-development",
+     "test-runner",
+     "test-writer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "extract text from a PDF file",
+    "picks": [
+     "pdf",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build a spreadsheet",
+    "picks": [
+     "xlsx",
+     "docs",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "prepare the site for launch with SEO",
+    "picks": [
+     "website-production",
+     "performance-optimizer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "verify the deploy is live",
+    "picks": [
+     "deploy-with-verification",
+     "prod-logs-health-check",
+     "usage-limit-reducer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "be lazy and write the simplest code",
+    "picks": [
+     "general-purpose",
+     "brainstormer"
+    ],
+    "top1": false,
+    "top3": false
+   }
+  ],
+  "suggestion": [
+   {
+    "task": "write a changelog for the release",
+    "picks": [
+     "pr-summarizer",
+     "prod-logs-health-check",
+     "visual-designer"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "commit these changes and push",
+    "picks": [
+     "commit",
+     "deploy-with-verification"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make a promo video with motion graphics",
+    "picks": [
+     "video",
+     "heartrate-overlay-sync",
+     "canvas-design"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "review my diff for bugs",
+    "picks": [
+     "code-reviewer",
+     "requesting-code-review",
+     "verification-before-completion"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "fix this stack trace",
+    "picks": [
+     "systematic-debugging",
+     "debugger",
+     "diagnosing-superpowers"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "find my note about the ports",
+    "picks": [
+     "synapse-graph",
+     "qmd",
+     "computer-use"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "scrape this web page",
+    "picks": [
+     "pdf",
+     "general-purpose",
+     "docx"
+    ],
+    "top1": false,
+    "top3": false
+   },
+   {
+    "task": "set up Clerk authentication",
+    "picks": [
+     "backend",
+     "backend-architect",
+     "website-production"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "design a landing page layout",
+    "picks": [
+     "visual-designer",
+     "canvas-design",
+     "brainstormer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "package the electron app installer",
+    "picks": [
+     "desktop",
+     "computer-use",
+     "frontend-security-coder"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "research and compare two libraries with sources",
+    "picks": [
+     "deep-research",
+     "general-purpose",
+     "synapse-graph"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "run the unit tests",
+    "picks": [
+     "test-runner",
+     "test-writer",
+     "test-driven-development"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a pull request description",
+    "picks": [
+     "pr-summarizer",
+     "brainstorming",
+     "skill-creator"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "turn this into a Word document",
+    "picks": [
+     "docx",
+     "docs",
+     "xlsx"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build an MCP server",
+    "picks": [
+     "mcp-builder",
+     "backend-architect",
+     "brainstormer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make this skill better",
+    "picks": [
+     "skill-creator",
+     "using-superpowers",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "plan the implementation steps",
+    "picks": [
+     "writing-plans",
+     "executing-plans"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "brainstorm feature ideas",
+    "picks": [
+     "brainstormer",
+     "brainstorming",
+     "using-superpowers"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "remember this insight for later",
+    "picks": [
+     "save-learning",
+     "context-manager",
+     "qmd"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "talk like a caveman to save tokens",
+    "picks": [
+     "caveman",
+     "usage-limit-reducer",
+     "vulcan"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "threat model for our API",
+    "picks": [
+     "threat-modeling-expert",
+     "api-management",
+     "frontend-security-coder"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make the react page render faster",
+    "picks": [
+     "performance-optimizer",
+     "frontend",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a regression test for this bug",
+    "picks": [
+     "test-writer",
+     "test-driven-development",
+     "systematic-debugging"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "extract text from a PDF file",
+    "picks": [
+     "pdf",
+     "sparky"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build a spreadsheet",
+    "picks": [
+     "xlsx",
+     "google-workspace",
+     "skill-creator"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "prepare the site for launch with SEO",
+    "picks": [
+     "website-production",
+     "helix",
+     "Plan"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "verify the deploy is live",
+    "picks": [
+     "deploy-with-verification",
+     "prod-logs-health-check",
+     "verification-before-completion"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "be lazy and write the simplest code",
+    "picks": [
+     "ponytail",
+     "karpathy-guidelines",
+     "test-driven-development"
+    ],
+    "top1": true,
+    "top3": true
+   }
+  ],
+  "oracle": [
+   {
+    "task": "write a changelog for the release",
+    "picks": [
+     "web-tools",
+     "pr-summarizer",
+     "usage-limit-reducer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "commit these changes and push",
+    "picks": [
+     "commit",
+     "caveman"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make a promo video with motion graphics",
+    "picks": [
+     "video",
+     "visual-designer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "review my diff for bugs",
+    "picks": [
+     "code-reviewer",
+     "requesting-code-review",
+     "caveman"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "fix this stack trace",
+    "picks": [
+     "debugger",
+     "systematic-debugging"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "find my note about the ports",
+    "picks": [
+     "qmd",
+     "docs",
+     "web-artifacts-builder"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "scrape this web page",
+    "picks": [
+     "helix",
+     "web-tools",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "set up Clerk authentication",
+    "picks": [
+     "backend",
+     "backend-architect",
+     "code-reviewer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "design a landing page layout",
+    "picks": [
+     "frontend",
+     "visual-designer",
+     "sketch"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "package the electron app installer",
+    "picks": [
+     "desktop",
+     "frontend",
+     "deploy-with-verification"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "research and compare two libraries with sources",
+    "picks": [
+     "deep-research",
+     "general-purpose",
+     "synapse-graph"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "run the unit tests",
+    "picks": [
+     "test-runner"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a pull request description",
+    "picks": [
+     "pr-summarizer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "turn this into a Word document",
+    "picks": [
+     "docx",
+     "writing-plans",
+     "brainstormer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build an MCP server",
+    "picks": [
+     "mcp-builder",
+     "backend-architect",
+     "docs"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make this skill better",
+    "picks": [
+     "skill-creator",
+     "writing-skills",
+     "brainstormer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "plan the implementation steps",
+    "picks": [
+     "backend-architect",
+     "writing-plans",
+     "brainstormer"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "brainstorm feature ideas",
+    "picks": [
+     "brainstormer",
+     "brainstorming",
+     "writing-plans"
+    ],
+    "top1": false,
+    "top3": true
+   },
+   {
+    "task": "remember this insight for later",
+    "picks": [
+     "save-learning",
+     "brainstormer",
+     "context-manager"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "talk like a caveman to save tokens",
+    "picks": [
+     "caveman"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "threat model for our API",
+    "picks": [
+     "threat-modeling-expert",
+     "backend-architect",
+     "api-management"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "make the react page render faster",
+    "picks": [
+     "performance-optimizer",
+     "frontend",
+     "general-purpose"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "write a regression test for this bug",
+    "picks": [
+     "test-writer",
+     "test-driven-development"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "extract text from a PDF file",
+    "picks": [
+     "pdf"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "build a spreadsheet",
+    "picks": [
+     "xlsx",
+     "pdf",
+     "docx"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "prepare the site for launch with SEO",
+    "picks": [
+     "website-production",
+     "performance-optimizer"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "verify the deploy is live",
+    "picks": [
+     "deploy-with-verification",
+     "backend",
+     "frontend"
+    ],
+    "top1": true,
+    "top3": true
+   },
+   {
+    "task": "be lazy and write the simplest code",
+    "picks": [
+     "ponytail",
+     "general-purpose",
+     "brainstormer"
+    ],
+    "top1": true,
+    "top3": true
+   }
+  ]
+ }
+}
