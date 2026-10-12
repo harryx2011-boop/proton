@@ -2,58 +2,71 @@
 
 @theme {
   --color-*: initial;
-  --color-ground: #0a0b0e;
-  --color-surface: #111318;
-  --color-raised: #181b22;
-  --color-line: #252a34;
-  --color-line-strong: #5a6478;
-  --color-fg: #eef0f4;
-  --color-fg-muted: #9aa3b2;
-  --color-accent: #4f86ff;
-  --color-accent-ink: #07090d;
+  --color-ink: #111111;
+  --color-ink-soft: #1a2240;
+  --color-field: #8fb0ff;
+  --color-field-deep: #6c93ff;
+  --color-field-pale: #dce7ff;
+  --color-paper: #ffffff;
+  --color-well: #e6e6e6;
 
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: 'VT323', ui-monospace, 'Cascadia Mono', monospace;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', monospace;
 
   --text-*: initial;
-  --text-caption: 0.8125rem;
+  --text-caption: 0.875rem;
   --text-caption--line-height: 1.25rem;
-  --text-body: 1rem;
-  --text-body--line-height: 1.625rem;
-  --text-lead: 1.1875rem;
-  --text-lead--line-height: 1.875rem;
-  --text-title: 1.5rem;
-  --text-title--line-height: 2rem;
-  --text-heading: 2.25rem;
-  --text-heading--line-height: 2.75rem;
-  --text-display: clamp(2.5rem, 7vw, 4.25rem);
-  --text-display--line-height: 1.05;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65rem;
+  --text-lead: 1.375rem;
+  --text-lead--line-height: 1.9rem;
+  --text-title: 2rem;
+  --text-title--line-height: 2.1rem;
+  --text-heading: clamp(2.5rem, 6.4vw, 5.25rem);
+  --text-heading--line-height: 0.92;
+  --text-display: clamp(3.25rem, 10.4vw, 9.375rem);
+  --text-display--line-height: 0.8;
+  --text-pixel: 1.375rem;
+  --text-pixel--line-height: 1;
+  --text-pixel-lg: 2.25rem;
+  --text-pixel-lg--line-height: 1;
+  --text-pixel-xl: clamp(3rem, 6vw, 4.75rem);
+  --text-pixel-xl--line-height: 0.9;
+
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.035em;
 
   --radius-*: initial;
-  --radius-control: 6px;
-  --radius-panel: 12px;
-  --radius-pill: 9999px;
+  --radius-dot: 9999px;
+
+  --shadow-*: initial;
+  --shadow-window: 2px 2px 0 0 var(--color-ink);
+  --shadow-window-lift: 4px 4px 0 0 var(--color-ink);
 
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: steps(2, end);
 
-  --container-page: 72rem;
-  --container-prose: 40rem;
+  --container-page: 77.5rem;
+  --container-prose: 42rem;
 }
 
 :root {
-  --duration-control: 180ms;
-  --duration-state: 520ms;
+  --duration-control: 120ms;
+  --duration-state: 420ms;
+  --duration-hero: 800ms;
   --stagger: 60ms;
-  --lift: 2px;
-  --header-height: 4rem;
-  color-scheme: dark;
+  --word-stagger: 70ms;
+  --header-height: 2.75rem;
+  --dot-step: 6px;
+  color-scheme: light;
 }
 
 @layer base {
   html {
-    background: var(--color-ground);
-    color: var(--color-fg);
+    background: var(--color-field);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     scroll-padding-top: calc(var(--header-height) + 1.5rem);
     -webkit-text-size-adjust: 100%;
@@ -70,8 +83,7 @@
   h1,
   h2,
   h3 {
-    font-weight: 650;
-    letter-spacing: -0.02em;
+    font-weight: 500;
     text-wrap: balance;
   }
 
@@ -85,32 +97,171 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-    border-radius: var(--radius-control);
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
   }
 
   ::selection {
-    background: var(--color-accent);
-    color: var(--color-accent-ink);
+    background: var(--color-ink);
+    color: var(--color-paper);
   }
 }
 
 @layer components {
   .skip-link {
     position: absolute;
-    left: 1rem;
+    left: 0.5rem;
     top: -4rem;
-    z-index: 50;
+    z-index: 60;
     padding: 0.75rem 1rem;
-    background: var(--color-fg);
-    color: var(--color-ground);
-    border-radius: var(--radius-control);
-    transition: top var(--duration-control) var(--ease-standard);
+    background: var(--color-ink);
+    color: var(--color-paper);
   }
 
   .skip-link:focus {
-    top: 1rem;
+    top: 0.5rem;
+  }
+
+  /* 1-bit window */
+  .win {
+    position: relative;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+    box-shadow: var(--shadow-window);
+  }
+
+  .win-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 1.875rem;
+    padding: 0 0.5rem;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-pixel);
+    font-size: var(--text-pixel);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    user-select: none;
+  }
+
+  .win-bar :focus-visible,
+  .win-bar:focus-visible {
+    outline-color: var(--color-paper);
+  }
+
+  .win-gray {
+    background: var(--color-well);
+  }
+
+  .dotgrid {
+    background-image: radial-gradient(circle, color-mix(in srgb, var(--color-ink) 70%, transparent) 0.9px, transparent 1.3px);
+    background-size: var(--dot-step) var(--dot-step);
+  }
+
+  .flip {
+    transition:
+      background-color var(--duration-control) var(--ease-snap),
+      color var(--duration-control) var(--ease-snap);
+  }
+
+  .biglink {
+    text-decoration: underline;
+    text-decoration-thickness: 0.07em;
+    text-underline-offset: 0.14em;
+  }
+
+  .crop-mark {
+    position: absolute;
+    width: 0.875rem;
+    height: 0.875rem;
+    border: 0 solid var(--color-ink);
+    pointer-events: none;
+  }
+
+  .crop-mark[data-pos='tl'] { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+  .crop-mark[data-pos='tr'] { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+  .crop-mark[data-pos='bl'] { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+  .crop-mark[data-pos='br'] { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
+
+  /* Grainy sky: blue gradient, soft clouds and a noise layer */
+  .sky {
+    position: relative;
+    isolation: isolate;
+    background:
+      radial-gradient(ellipse 38% 34% at 12% 22%, color-mix(in srgb, var(--color-paper) 55%, transparent), transparent 70%),
+      radial-gradient(ellipse 34% 30% at 88% 14%, color-mix(in srgb, var(--color-paper) 50%, transparent), transparent 70%),
+      radial-gradient(ellipse 30% 26% at 78% 46%, color-mix(in srgb, var(--color-field-deep) 80%, transparent), transparent 72%),
+      radial-gradient(ellipse 36% 30% at 18% 52%, color-mix(in srgb, var(--color-field-deep) 75%, transparent), transparent 72%),
+      linear-gradient(180deg, var(--color-field-deep) 0%, var(--color-field) 38%, var(--color-field-pale) 78%, var(--color-paper) 100%);
+  }
+
+  .sky::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .field {
+    background-color: var(--color-field);
+  }
+}
+
+/* Unlayered on purpose: the 1-bit flip must beat the bg-* and text-* utilities that set a tile's resting colours. */
+.flip:hover,
+.flip:focus-visible,
+.flip[aria-pressed='true'] {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.win-bar .flip:hover,
+.win-bar .flip:focus-visible,
+.win-bar .flip[aria-pressed='true'],
+.flip[data-tone='dark']:hover,
+.flip[data-tone='dark']:focus-visible {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise {
+    from { transform: translateY(0.55em); }
+  }
+  @keyframes lift {
+    from { opacity: 0; transform: translateY(14px); }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .rise-word {
+    display: inline-block;
+    animation: rise var(--duration-hero) var(--ease-settle) both;
+    animation-delay: calc(var(--i, 0) * var(--word-stagger));
+  }
+
+  .lift-in {
+    animation: lift var(--duration-hero) var(--ease-settle) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .pop-in {
+    animation: pop var(--duration-state) var(--ease-settle) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  .caret {
+    animation: blink 1s steps(1, end) infinite;
   }
 }
 

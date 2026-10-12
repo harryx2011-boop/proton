@@ -1,0 +1,184 @@
+{
+  "source": "tests/bench_tools.py (GOLD)",
+  "tasks": [
+    {
+      "query": "write a changelog for the release",
+      "accept": [
+        "web-tools"
+      ]
+    },
+    {
+      "query": "commit these changes and push",
+      "accept": [
+        "commit",
+        "caveman-commit"
+      ]
+    },
+    {
+      "query": "make a promo video with motion graphics",
+      "accept": [
+        "video"
+      ]
+    },
+    {
+      "query": "review my diff for bugs",
+      "accept": [
+        "review",
+        "code-reviewer",
+        "requesting-code-review",
+        "caveman-review"
+      ]
+    },
+    {
+      "query": "fix this stack trace",
+      "accept": [
+        "fix",
+        "debugger",
+        "systematic-debugging"
+      ]
+    },
+    {
+      "query": "find my note about the ports",
+      "accept": [
+        "qmd"
+      ]
+    },
+    {
+      "query": "scrape this web page",
+      "accept": [
+        "helix"
+      ]
+    },
+    {
+      "query": "set up Clerk authentication",
+      "accept": [
+        "backend"
+      ]
+    },
+    {
+      "query": "design a landing page layout",
+      "accept": [
+        "frontend",
+        "visual-designer"
+      ]
+    },
+    {
+      "query": "package the electron app installer",
+      "accept": [
+        "desktop"
+      ]
+    },
+    {
+      "query": "research and compare two libraries with sources",
+      "accept": [
+        "deep-research"
+      ]
+    },
+    {
+      "query": "run the unit tests",
+      "accept": [
+        "test",
+        "test-runner"
+      ]
+    },
+    {
+      "query": "write a pull request description",
+      "accept": [
+        "pr-summarizer"
+      ]
+    },
+    {
+      "query": "turn this into a Word document",
+      "accept": [
+        "docx"
+      ]
+    },
+    {
+      "query": "build an MCP server",
+      "accept": [
+        "mcp-builder"
+      ]
+    },
+    {
+      "query": "make this skill better",
+      "accept": [
+        "skill-creator",
+        "writing-skills"
+      ]
+    },
+    {
+      "query": "plan the implementation steps",
+      "accept": [
+        "Plan",
+        "writing-plans"
+      ]
+    },
+    {
+      "query": "brainstorm feature ideas",
+      "accept": [
+        "brainstorming"
+      ]
+    },
+    {
+      "query": "remember this insight for later",
+      "accept": [
+        "save-learning"
+      ]
+    },
+    {
+      "query": "talk like a caveman to save tokens",
+      "accept": [
+        "caveman"
+      ]
+    },
+    {
+      "query": "threat model for our API",
+      "accept": [
+        "threat-modeling-expert"
+      ]
+    },
+    {
+      "query": "make the react page render faster",
+      "accept": [
+        "performance-optimizer"
+      ]
+    },
+    {
+      "query": "write a regression test for this bug",
+      "accept": [
+        "test-writer",
+        "test-driven-development"
+      ]
+    },
+    {
+      "query": "extract text from a PDF file",
+      "accept": [
+        "pdf"
+      ]
+    },
+    {
+      "query": "build a spreadsheet",
+      "accept": [
+        "xlsx"
+      ]
+    },
+    {
+      "query": "prepare the site for launch with SEO",
+      "accept": [
+        "website-production"
+      ]
+    },
+    {
+      "query": "verify the deploy is live",
+      "accept": [
+        "deploy-with-verification"
+      ]
+    },
+    {
+      "query": "be lazy and write the simplest code",
+      "accept": [
+        "ponytail"
+      ]
+    }
+  ]
+}

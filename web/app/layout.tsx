@@ -1,10 +1,21 @@
 import type { Metadata, Viewport } from 'next'
-import '@fontsource-variable/inter'
+import localFont from 'next/font/local'
+import '@fontsource/vt323'
 import '@fontsource-variable/jetbrains-mono'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { BootLoader } from '@/components/retro/BootLoader'
 import { site } from '@/site.config'
+
+// Inter Tight carries the headline and the lead, so it is preloaded with a size-matched fallback (no late swap).
+const interTight = localFont({
+  src: '../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2',
+  variable: '--font-inter-tight',
+  weight: '100 900',
+  display: 'swap',
+  adjustFontFallback: 'Arial',
+})
 
 const description =
   'Proton is a small program that runs on your computer and answers quick questions for AI agents: is this text a trick, which skill fits, is this action safe.'
@@ -17,15 +28,16 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: 'Proton', description },
 }
 
-export const viewport: Viewport = { themeColor: '#0a0b0e', colorScheme: 'dark' }
+export const viewport: Viewport = { themeColor: '#8fb0ff', colorScheme: 'light' }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={interTight.variable}>
       <body>
         <a href="#main" className="skip-link">
           Skip to Content
         </a>
+        <BootLoader />
         <Header />
         <main id="main">{children}</main>
         <Footer />

@@ -6,53 +6,55 @@ import { useState } from 'react'
 import { Mark } from './Mark'
 import { nav } from '@/lib/nav'
 
+const tile = 'flip flex min-h-11 items-center border border-ink px-3 text-body font-medium'
+const light = 'bg-paper text-ink'
+const dark = 'bg-ink text-paper'
+
 export function Header() {
   const path = usePathname()
   const [open, setOpen] = useState(false)
-  const link = (href: string) =>
-    `flex min-h-11 items-center rounded-control px-3 text-body transition-colors duration-[var(--duration-control)] ease-standard hover:bg-raised ${
-      path === href ? 'text-accent' : 'text-fg-muted hover:text-fg'
-    }`
+  const tone = (href: string) => (path === href ? dark : light)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-ground">
-      <div className="mx-auto flex h-16 max-w-page items-center justify-between gap-4 px-4 md:px-6">
-        <Link href="/" className="flex min-h-11 items-center gap-2 rounded-control font-semibold tracking-tight" onClick={() => setOpen(false)}>
-          <Mark size={24} />
+    <header className="sticky top-0 z-40">
+      <div className="flex items-start justify-between gap-2">
+        <Link href="/" className={`${tile} ${light} gap-2`} onClick={() => setOpen(false)}>
+          <Mark size={22} />
           <span>Proton</span>
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Main" className="hidden md:flex">
           {nav.map((n) => (
-            <Link key={n.href} href={n.href} className={link(n.href)} aria-current={path === n.href ? 'page' : undefined}>
+            <Link key={n.href} href={n.href} className={`${tile} -ml-px ${tone(n.href)}`} data-tone={path === n.href ? 'dark' : undefined} aria-current={path === n.href ? 'page' : undefined}>
               {n.label}
             </Link>
           ))}
-          <Link
-            href="/download"
-            className="ml-2 inline-flex min-h-11 items-center rounded-control bg-accent px-4 text-body font-medium text-accent-ink transition-transform duration-[var(--duration-control)] ease-standard hover:-translate-y-0.5"
-          >
-            Download
-          </Link>
         </nav>
 
-        <button
-          type="button"
-          className="min-h-11 rounded-control px-3 text-body font-medium text-fg md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? 'Close' : 'Menu'}
-        </button>
+        <div className="flex">
+          <Link href="/download" data-tone="dark" className={`${tile} ${dark} hidden md:flex`}>
+            Download
+          </Link>
+          <button type="button" className={`${tile} ${light} md:hidden`} aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((o) => !o)}>
+            {open ? 'Close' : 'Menu'}
+          </button>
+        </div>
       </div>
 
       {open && (
-        <nav id="mobile-nav" aria-label="Main" className="border-t border-line bg-ground px-4 pb-4 pt-2 md:hidden">
-          <ul className="flex flex-col">
+        <nav id="mobile-nav" aria-label="Main" className="win m-2 md:hidden">
+          <div className="win-bar">
+            <span className="text-pixel">Menu</span>
+          </div>
+          <ul className="m-0 flex list-none flex-col p-0">
             {[...nav, { href: '/download', label: 'Download' }].map((n) => (
               <li key={n.href}>
-                <Link href={n.href} className={link(n.href)} onClick={() => setOpen(false)} aria-current={path === n.href ? 'page' : undefined}>
+                <Link
+                  href={n.href}
+                  className={`flip flex min-h-11 items-center border-t border-ink px-3 text-body first:border-t-0 ${path === n.href ? dark : ''}`}
+                  onClick={() => setOpen(false)}
+                  aria-current={path === n.href ? 'page' : undefined}
+                >
                   {n.label}
                 </Link>
               </li>

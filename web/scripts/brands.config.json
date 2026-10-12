@@ -1,0 +1,16 @@
+{
+  "brands": {
+    "vscode": { "name": "VS Code", "from": ["logos:visual-studio-code", "simple-icons:visualstudiocode"] },
+    "claude-code": { "name": "Claude Code", "from": ["logos:claude-icon", "simple-icons:claude"] },
+    "windows": { "name": "Windows", "from": ["logos:microsoft-windows-icon", "simple-icons:windows"] },
+    "ollama": { "name": "Ollama", "from": ["simple-icons:ollama", "logos:ollama"] },
+    "github": { "name": "GitHub", "from": ["logos:github-icon", "simple-icons:github"] },
+    "mcp": { "name": "Model Context Protocol", "from": ["simple-icons:modelcontextprotocol"] },
+    "huggingface": { "name": "Hugging Face", "from": ["logos:hugging-face-icon", "simple-icons:huggingface"] },
+    "qwen": { "name": "Qwen", "from": ["logos:qwen-icon", "simple-icons:qwen"] },
+    "python": { "name": "Python", "from": ["logos:python", "simple-icons:python"] },
+    "typescript": { "name": "TypeScript", "from": ["logos:typescript-icon", "simple-icons:typescript"] },
+    "thakicloud": { "name": "ThakiCloud", "fetch": "https://thakicloud.com/favicon.svg" },
+    "knowledgator": { "name": "Knowledgator", "fetch": "https://knowledgator.com/favicon.ico" }
+  }
+}

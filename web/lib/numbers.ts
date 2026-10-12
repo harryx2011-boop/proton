@@ -1,3 +1,5 @@
+import benchNumbers from '../fixtures/bench-numbers.json' with { type: 'json' }
+
 export interface Measured {
   id: string
   label: string
@@ -33,6 +35,13 @@ export const numbers: Measured[] = [
   m('injection-high', 'Injection Sample One', 0.975, 'score', '2026-10-06', 'context.md', 'injections 0.975'),
   m('injection-second', 'Injection Sample Two', 0.893, 'score', '2026-10-06', 'context.md', '0.893;'),
   m('injection-docs', 'Normal Documents, Highest', 0.312, 'score', '2026-10-06', 'context.md', 'docs at most 0.312'),
+  m('gpu-decide', 'Decide, GPU Build', 74, 'ms', '2026-10-05', 'context.md', '`decide` (1 head, 2 labels) | 74 ms'),
+  m('gpu-locate', 'Locate Skill, GPU Build', 527, 'ms', '2026-10-05', 'context.md', '`locate_skill` (85-item global pool, 85 labels) | 527 ms'),
+  m('gpu-rank', 'Rank, GPU Build', 186, 'ms', '2026-10-05', 'context.md', '`rank` (3 texts) | 186 ms'),
+  m('gpu-triage', 'Triage, GPU Build', 177, 'ms', '2026-10-05', 'context.md', '`triage` (3 items, 3 labels) | 177 ms'),
+  m('gpu-risk', 'Risk, GPU Build', 71, 'ms', '2026-10-05', 'context.md', '`risk` | 71 ms'),
+  // Written by scripts/bench-numbers.mjs from fixtures/bench*.json; empty until a measurement has run.
+  ...benchNumbers,
 ]
 
 export const byId = (id: string): Measured => {

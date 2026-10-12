@@ -2,7 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { examples } from '@/lib/demo/examples'
 import { tools } from '@/lib/docs/tools'
 import { faq } from '@/lib/faq'
-import { charts } from '@/lib/bench/charts'
+import { credits } from '@/lib/credits'
+import { BRANDS } from '@/lib/brands'
+import { charts, chartIds, isAvailable } from '@/lib/bench/charts'
+import { availableCharts } from '@/lib/bench/resolve'
 import { numbers } from '@/lib/numbers'
 import { isTitleCase } from '@/lib/titleCase'
 import fixture from '@/fixtures/demo.json'
@@ -58,14 +61,34 @@ describe('faq', () => {
   })
 })
 
+describe('credits', () => {
+  it('credits the three models, each linked to its page and any author mark registered', () => {
+    expect(credits.map((c) => c.name)).toEqual(['SKILLRET-Edge-109M', 'e5-base-v2', 'gliclass-base-v3.0'])
+    for (const c of credits) {
+      expect(c.href, c.name).toMatch(/^https:\/\/huggingface\.co\//)
+      if (c.byMark) expect(c.byMark in BRANDS, c.byMark).toBe(true)
+    }
+  })
+})
+
 describe('benchmark charts', () => {
-  it('has the four agreed charts, Title Case titles', () => {
-    expect(charts.map((c) => c.id)).toEqual(['speed', 'memory', 'routing', 'injection'])
+  it('has the eight agreed charts, Title Case titles, unique ids', () => {
+    expect(charts.map((c) => c.id)).toEqual(['speed', 'latency', 'before-after', 'memory', 'routing', 'injection', 'llm-time', 'llm-accuracy'])
+    expect(unique(charts.map((c) => c.id))).toBe(true)
     for (const c of charts) expect(isTitleCase(c.title), c.title).toBe(true)
   })
 
   it('every plotted value is one of the measured numbers', () => {
     const known = new Set(numbers.map((n) => n.id))
-    for (const c of charts) for (const s of c.series) expect(known.has(s.numberId), s.numberId).toBe(true)
+    for (const c of charts) for (const x of chartIds(c)) if (!x.optional) expect(known.has(x.id) || !isAvailable(c, known), x.id).toBe(true)
+    for (const c of availableCharts()) for (const x of chartIds(c)) if (!x.optional) expect(known.has(x.id), x.id).toBe(true)
+  })
+
+  it('every chart names its test, machine and source', () => {
+    for (const c of charts) {
+      expect(c.test, c.id).toBeTruthy()
+      expect(c.machine, c.id).toBeTruthy()
+      expect(c.source, c.id).toBeTruthy()
+    }
   })
 })

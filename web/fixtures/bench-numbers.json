@@ -1,0 +1,343 @@
+[
+  {
+    "id": "dist-decide-p50",
+    "label": "Decide, Median",
+    "value": 45,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Decide: p50 45 ms"
+    }
+  },
+  {
+    "id": "dist-decide-p95",
+    "label": "Decide, 95th Percentile",
+    "value": 74,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Decide: p50 45 ms, p95 74 ms"
+    }
+  },
+  {
+    "id": "dist-decide-p99",
+    "label": "Decide, 99th Percentile",
+    "value": 295,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Decide: p50 45 ms, p95 74 ms, p99 295 ms"
+    }
+  },
+  {
+    "id": "dist-locate-p50",
+    "label": "Locate Skill, Median",
+    "value": 42,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Locate Skill: p50 42 ms"
+    }
+  },
+  {
+    "id": "dist-locate-p95",
+    "label": "Locate Skill, 95th Percentile",
+    "value": 100,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Locate Skill: p50 42 ms, p95 100 ms"
+    }
+  },
+  {
+    "id": "dist-locate-p99",
+    "label": "Locate Skill, 99th Percentile",
+    "value": 848,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Locate Skill: p50 42 ms, p95 100 ms, p99 848 ms"
+    }
+  },
+  {
+    "id": "dist-rank-p50",
+    "label": "Rank, Median",
+    "value": 111,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Rank: p50 111 ms"
+    }
+  },
+  {
+    "id": "dist-rank-p95",
+    "label": "Rank, 95th Percentile",
+    "value": 253,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Rank: p50 111 ms, p95 253 ms"
+    }
+  },
+  {
+    "id": "dist-rank-p99",
+    "label": "Rank, 99th Percentile",
+    "value": 3652,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Rank: p50 111 ms, p95 253 ms, p99 3652 ms"
+    }
+  },
+  {
+    "id": "dist-triage-p50",
+    "label": "Triage, Median",
+    "value": 184,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Triage: p50 184 ms"
+    }
+  },
+  {
+    "id": "dist-triage-p95",
+    "label": "Triage, 95th Percentile",
+    "value": 670,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Triage: p50 184 ms, p95 670 ms"
+    }
+  },
+  {
+    "id": "dist-triage-p99",
+    "label": "Triage, 99th Percentile",
+    "value": 1790,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Triage: p50 184 ms, p95 670 ms, p99 1790 ms"
+    }
+  },
+  {
+    "id": "dist-risk-p50",
+    "label": "Risk, Median",
+    "value": 32,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Risk: p50 32 ms"
+    }
+  },
+  {
+    "id": "dist-risk-p95",
+    "label": "Risk, 95th Percentile",
+    "value": 57,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Risk: p50 32 ms, p95 57 ms"
+    }
+  },
+  {
+    "id": "dist-risk-p99",
+    "label": "Risk, 99th Percentile",
+    "value": 1959,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Risk: p50 32 ms, p95 57 ms, p99 1959 ms"
+    }
+  },
+  {
+    "id": "dist-batch-p50",
+    "label": "Decide Batch, Median",
+    "value": 98,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Decide Batch: p50 98 ms"
+    }
+  },
+  {
+    "id": "dist-batch-p95",
+    "label": "Decide Batch, 95th Percentile",
+    "value": 152,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Decide Batch: p50 98 ms, p95 152 ms"
+    }
+  },
+  {
+    "id": "dist-batch-p99",
+    "label": "Decide Batch, 99th Percentile",
+    "value": 200,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Latency Decide Batch: p50 98 ms, p95 152 ms, p99 200 ms"
+    }
+  },
+  {
+    "id": "llm-injection-proton",
+    "label": "Hidden Instructions Check, Proton",
+    "value": 52,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Hidden Instructions Check: Proton 52 ms"
+    }
+  },
+  {
+    "id": "llm-injection-model",
+    "label": "Hidden Instructions Check, qwen3.5:2b",
+    "value": 415,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Hidden Instructions Check: Proton 52 ms, qwen3.5:2b 415 ms"
+    }
+  },
+  {
+    "id": "llm-routing-proton",
+    "label": "Pick the Right Skill, Proton",
+    "value": 41,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Pick the Right Skill: Proton 41 ms"
+    }
+  },
+  {
+    "id": "llm-routing-model",
+    "label": "Pick the Right Skill, qwen3.5:2b",
+    "value": 339,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Pick the Right Skill: Proton 41 ms, qwen3.5:2b 339 ms"
+    }
+  },
+  {
+    "id": "llm-risk-proton",
+    "label": "Rate an Action, Proton",
+    "value": 37,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Rate an Action: Proton 37 ms"
+    }
+  },
+  {
+    "id": "llm-risk-model",
+    "label": "Rate an Action, qwen3.5:2b",
+    "value": 313,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Rate an Action: Proton 37 ms, qwen3.5:2b 313 ms"
+    }
+  },
+  {
+    "id": "llm-triage-proton",
+    "label": "Sort a Batch, Proton",
+    "value": 167,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Sort a Batch: Proton 167 ms"
+    }
+  },
+  {
+    "id": "llm-triage-model",
+    "label": "Sort a Batch, qwen3.5:2b",
+    "value": 1043,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Time per decision, Sort a Batch: Proton 167 ms, qwen3.5:2b 1043 ms"
+    }
+  },
+  {
+    "id": "gold-proton-top1",
+    "label": "Proton, Right Skill First",
+    "value": 23,
+    "unit": "of 28",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Proton top-1 23/28"
+    }
+  },
+  {
+    "id": "gold-model-top1",
+    "label": "qwen3.5:2b, Right Skill First",
+    "value": 20,
+    "unit": "of 28",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "qwen3.5:2b top-1 20/28"
+    }
+  },
+  {
+    "id": "gold-proton-ms",
+    "label": "Proton, Time per Decision",
+    "value": 38,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Routing gold set, 28 tasks: Proton top-1 23/28 at median 38 ms per decision"
+    }
+  },
+  {
+    "id": "gold-model-ms",
+    "label": "qwen3.5:2b, Time per Decision",
+    "value": 483,
+    "unit": "ms",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "Routing gold set, 28 tasks: Proton top-1 23/28 at median 38 ms per decision; qwen3.5:2b top-1 20/28 at median 483 ms per decision"
+    }
+  },
+  {
+    "id": "llm-memory",
+    "label": "qwen3.5:2b, Loaded",
+    "value": 2.8,
+    "unit": "GB",
+    "measured": "2026-10-12",
+    "source": {
+      "file": "context.md",
+      "match": "qwen3.5:2b loaded in Ollama takes 2.8 GB"
+    }
+  }
+]

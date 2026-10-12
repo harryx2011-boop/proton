@@ -1,0 +1,183 @@
+{
+  "recordedAt": "2026-10-12",
+  "machine": "busy desktop PC, other sessions running",
+  "model": "qwen3.5:2b",
+  "runs": 10,
+  "warmup": 1,
+  "note": "Both sides answered the same four demo tasks with the same labels; tasks were interleaved. The model was asked for JSON with a label and a 0 to 1 confidence, at temperature 0 with thinking off.",
+  "tasks": [
+    {
+      "id": "injection",
+      "label": "Hidden Instructions Check",
+      "protonMs": 52.34939999999915,
+      "llmMs": 415.2149000000027,
+      "llmInvalid": 0,
+      "llmAnswers": [
+        [
+          {
+            "label": "hidden_instructions_for_an_AI_agent_to_ignore_rules_or_exfiltrate_data",
+            "confidence": 1
+          }
+        ],
+        [
+          {
+            "label": "hidden_instructions_for_an_AI_agent_to_ignore_rules_or_exfiltrate_data",
+            "confidence": 1
+          }
+        ],
+        [
+          {
+            "label": "hidden_instructions_for_an_AI_agent_to_ignore_rules_or_exfiltrate_data",
+            "confidence": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "routing",
+      "label": "Pick the Right Skill",
+      "protonMs": 41.28360000000066,
+      "llmMs": 338.9981000000007,
+      "llmInvalid": 0,
+      "llmAnswers": [
+        [
+          {
+            "label": "systematic-debugging",
+            "confidence": 0.95
+          }
+        ],
+        [
+          {
+            "label": "systematic-debugging",
+            "confidence": 0.95
+          }
+        ],
+        [
+          {
+            "label": "systematic-debugging",
+            "confidence": 0.95
+          }
+        ]
+      ]
+    },
+    {
+      "id": "risk",
+      "label": "Rate an Action",
+      "protonMs": 37.286800000001676,
+      "llmMs": 312.9149000000034,
+      "llmInvalid": 0,
+      "llmAnswers": [
+        [
+          {
+            "label": "destructive",
+            "confidence": 0.95
+          }
+        ],
+        [
+          {
+            "label": "destructive",
+            "confidence": 0.95
+          }
+        ],
+        [
+          {
+            "label": "destructive",
+            "confidence": 0.95
+          }
+        ]
+      ]
+    },
+    {
+      "id": "triage",
+      "label": "Sort a Batch",
+      "protonMs": 167.08209999999963,
+      "llmMs": 1042.8162000000011,
+      "llmInvalid": 0,
+      "llmAnswers": [
+        [
+          {
+            "label": "bug",
+            "confidence": 0.95
+          },
+          {
+            "label": "feature",
+            "confidence": 0.85
+          },
+          {
+            "label": "question",
+            "confidence": 0.75
+          },
+          {
+            "label": "bug",
+            "confidence": 0.9
+          },
+          {
+            "label": "feature",
+            "confidence": 0.8
+          }
+        ],
+        [
+          {
+            "label": "bug",
+            "confidence": 0.95
+          },
+          {
+            "label": "feature",
+            "confidence": 0.85
+          },
+          {
+            "label": "question",
+            "confidence": 0.75
+          },
+          {
+            "label": "bug",
+            "confidence": 0.9
+          },
+          {
+            "label": "feature",
+            "confidence": 0.8
+          }
+        ],
+        [
+          {
+            "label": "bug",
+            "confidence": 0.95
+          },
+          {
+            "label": "feature",
+            "confidence": 0.85
+          },
+          {
+            "label": "question",
+            "confidence": 0.75
+          },
+          {
+            "label": "bug",
+            "confidence": 0.9
+          },
+          {
+            "label": "feature",
+            "confidence": 0.8
+          }
+        ]
+      ]
+    }
+  ],
+  "gold": {
+    "size": 28,
+    "candidates": 82,
+    "protonTop1": 23,
+    "protonTop3": 26,
+    "protonMs": 38.27009999999427,
+    "llmTop1": 20,
+    "llmInvalid": 0,
+    "llmMs": 483.0711999999985
+  },
+  "memory": {
+    "loadedBytes": 2817618081,
+    "vramBytes": 2817618081,
+    "processPrivateBytes": 160690176,
+    "processWorkingSetBytes": 49606656,
+    "processes": 2
+  }
+}
