@@ -1,0 +1,262 @@
+{
+  "recordedAt": "2026-10-12",
+  "runs": 5,
+  "note": "Median time of 5 calls to the local server on a busy desktop PC. Skill descriptions are removed from the routing reply; nothing else is edited.",
+  "examples": [
+    {
+      "id": "injection",
+      "ms": 46,
+      "reply": {
+        "decisions": {
+          "injection": {
+            "label": "hidden_instructions_for_an_AI_agent_to_ignore_rules_or_exfiltrate_data",
+            "confidence": 0.8889896064072007,
+            "probabilities": {
+              "normal_documentation": 0.11101039359279918,
+              "hidden_instructions_for_an_AI_agent_to_ignore_rules_or_exfiltrate_data": 0.8889896064072007
+            }
+          }
+        },
+        "feasible": true,
+        "violations": []
+      }
+    },
+    {
+      "id": "routing",
+      "ms": 38,
+      "reply": {
+        "picks": [
+          {
+            "id": "skill:plugin:superpowers:systematic-debugging",
+            "kind": "skill",
+            "name": "systematic-debugging",
+            "invocation": "/superpowers:systematic-debugging",
+            "category": "Testing",
+            "score": 0.2112,
+            "raw": 0.3219
+          },
+          {
+            "id": "agent:user:debugger",
+            "kind": "agent",
+            "name": "debugger",
+            "invocation": "debugger",
+            "category": "tester",
+            "score": 0.2018,
+            "raw": 0.3348
+          },
+          {
+            "id": "agent:user:test-writer",
+            "kind": "agent",
+            "name": "test-writer",
+            "invocation": "test-writer",
+            "category": "tester",
+            "score": 0.1638,
+            "raw": 0.2953
+          }
+        ],
+        "pool": 86
+      }
+    },
+    {
+      "id": "risk",
+      "ms": 32,
+      "reply": {
+        "risk": "destructive",
+        "score": 0.5532345947359527,
+        "source": "model",
+        "ranked": [
+          [
+            "destructive",
+            0.5532345947359527
+          ],
+          [
+            "write",
+            0.18339147796914496
+          ],
+          [
+            "read",
+            0.17732900473143937
+          ],
+          [
+            "send",
+            0.08604492256346302
+          ]
+        ]
+      }
+    },
+    {
+      "id": "triage",
+      "ms": 135,
+      "reply": {
+        "results": [
+          {
+            "index": 0,
+            "item": "App crashes when I open settings on a second monitor",
+            "label": "bug",
+            "score": 0.5315709112162758,
+            "ranked": [
+              [
+                "bug",
+                0.5315709112162758
+              ],
+              [
+                "question",
+                0.31947228640456576
+              ],
+              [
+                "feature",
+                0.14895680237915848
+              ]
+            ]
+          },
+          {
+            "index": 1,
+            "item": "Add a dark theme for the sidebar",
+            "label": "feature",
+            "score": 0.7008980622735532,
+            "ranked": [
+              [
+                "feature",
+                0.7008980622735532
+              ],
+              [
+                "bug",
+                0.19458530114822717
+              ],
+              [
+                "question",
+                0.10451663657821963
+              ]
+            ]
+          },
+          {
+            "index": 2,
+            "item": "How do I change the default model?",
+            "label": "question",
+            "score": 0.6197317684843303,
+            "ranked": [
+              [
+                "question",
+                0.6197317684843303
+              ],
+              [
+                "feature",
+                0.21429302504762457
+              ],
+              [
+                "bug",
+                0.16597520646804506
+              ]
+            ]
+          },
+          {
+            "index": 3,
+            "item": "Export button does nothing after the last update",
+            "label": "bug",
+            "score": 0.6671027559303626,
+            "ranked": [
+              [
+                "bug",
+                0.6671027559303626
+              ],
+              [
+                "feature",
+                0.19336501580781384
+              ],
+              [
+                "question",
+                0.13953222826182346
+              ]
+            ]
+          },
+          {
+            "index": 4,
+            "item": "Support importing notes from a folder",
+            "label": "feature",
+            "score": 0.6272711348235778,
+            "ranked": [
+              [
+                "feature",
+                0.6272711348235778
+              ],
+              [
+                "bug",
+                0.2036877455703786
+              ],
+              [
+                "question",
+                0.1690411196060438
+              ]
+            ]
+          }
+        ],
+        "buckets": {
+          "bug": [
+            0,
+            3
+          ],
+          "feature": [
+            1,
+            4
+          ],
+          "question": [
+            2
+          ]
+        }
+      }
+    }
+  ],
+  "docs": {
+    "rank": {
+      "ranked": [
+        {
+          "index": 2,
+          "text": "Where can I download my invoice?",
+          "score": 0.8164421308429307
+        },
+        {
+          "index": 1,
+          "text": "How do I update my credit card?",
+          "score": 0.7957300540669089
+        },
+        {
+          "index": 0,
+          "text": "The app is slow to start",
+          "score": 0.7344602423401191
+        }
+      ]
+    },
+    "decide_batch": {
+      "results": [
+        {
+          "decisions": {
+            "kind": {
+              "label": "bug report",
+              "confidence": 0.9972416858296814,
+              "probabilities": {
+                "bug report": 0.9972416858296814,
+                "feature request": 0.0027583141703186377
+              }
+            }
+          },
+          "feasible": true,
+          "violations": []
+        },
+        {
+          "decisions": {
+            "kind": {
+              "label": "feature request",
+              "confidence": 0.9985307900657808,
+              "probabilities": {
+                "bug report": 0.0014692099342191653,
+                "feature request": 0.9985307900657808
+              }
+            }
+          },
+          "feasible": true,
+          "violations": []
+        }
+      ]
+    }
+  }
+}

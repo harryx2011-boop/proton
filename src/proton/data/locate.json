@@ -1,0 +1,12 @@
+{
+  "_doc": "locate_skill settings. Each catalog item is embedded as doc_format (invocation without '/', ' agent' for agents, then the description, then the SKILL.md or agent body without frontmatter), first doc_max_words words, then the model's 256-token cut. The query is encoded bare. score = cosine(task, item) minus the item's prior, its mean cosine over generic_tasks (hub correction; measured top-1 6/28 without it, 24/28 with it on tests/bench_tools.py GOLD). raw = the plain cosine. Picks under floor are dropped.",
+  "model": "skillret",
+  "doc_format": "{name}: {description}\n{body}",
+  "doc_max_words": 400,
+  "generic_tasks": [
+    "help me with this", "do the next step", "what should I do about the problem", "update the project",
+    "check everything works", "make it better", "handle the files in my folder", "write something for my team",
+    "set this up properly", "look into this issue", "prepare for tomorrow", "explain how it works"
+  ],
+  "floor": 0.0
+}

@@ -1,0 +1,13 @@
+.venv/
+.hf/
+.uv-cache/
+__pycache__/
+*.pyc
+scripts/.taxonomy-cache*.json
+.onnx/
+.env
+.env.*
+node_modules/
+*.vsix
+dist/
+models/

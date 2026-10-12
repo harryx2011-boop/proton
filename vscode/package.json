@@ -1,0 +1,106 @@
+{
+  "name": "proton-mcp",
+  "displayName": "Proton",
+  "description": "Runs Proton, the local CPU decision-model MCP server, inside VS Code, with a status item, a sidebar view and a dashboard tab.",
+  "version": "1.0.0",
+  "publisher": "proton",
+  "license": "MIT",
+  "private": true,
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.137.0",
+    "node": ">=20"
+  },
+  "categories": [
+    "Machine Learning",
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "proton.start",
+        "title": "Start",
+        "category": "Proton"
+      },
+      {
+        "command": "proton.stop",
+        "title": "Stop",
+        "category": "Proton"
+      },
+      {
+        "command": "proton.restart",
+        "title": "Restart",
+        "category": "Proton"
+      },
+      {
+        "command": "proton.openDashboard",
+        "title": "Open Dashboard",
+        "category": "Proton"
+      },
+      {
+        "command": "proton.turnOn",
+        "title": "Turn On (Remove Off Flag)",
+        "category": "Proton"
+      }
+    ],
+    "configuration": {
+      "title": "Proton",
+      "properties": {
+        "proton.port": {
+          "type": "number",
+          "default": 9400,
+          "description": "Port of the shared Proton server on 127.0.0.1. Change it only for a dev run; the PROTON_PORT environment variable overrides it."
+        },
+        "proton.modelBaseUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Where the first run downloads the three model files from (base URL; files are <base>/<key>-<file>). Empty means the GitHub release for this extension version. The PROTON_MODEL_BASE_URL environment variable overrides it."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "proton",
+          "title": "Proton",
+          "icon": "media/atom.svg"
+        }
+      ]
+    },
+    "views": {
+      "proton": [
+        {
+          "type": "webview",
+          "id": "proton.sidebar",
+          "name": "Proton"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "icon": "node scripts/make-icon.mjs",
+    "package": "vsce package --allow-missing-repository --skip-license --no-rewrite-relative-links --no-dependencies -o proton-mcp.vsix",
+    "build:slim": "node scripts/build.mjs --slim",
+    "package:slim": "npm run build:slim && vsce package --allow-missing-repository --skip-license --no-rewrite-relative-links --no-dependencies --ignoreFile .vscodeignore.slim -o proton-mcp-slim.vsix"
+  },
+  "dependencies": {
+    "@huggingface/tokenizers": "^0.2.0",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "onnxruntime-node": "^1.30.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^22.20.5",
+    "@types/vscode": "~1.137.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.9.3"
+  }
+}

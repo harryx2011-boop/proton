@@ -1,0 +1,34 @@
+{
+  "_doc": "Proton's encoders. Each lives in <model dir>/<key>/ as model.onnx (dynamic int8) plus tokenizer.json and MANIFEST.md. Read by src/proton/models.py and scripts/export_onnx.py; a new model is one entry.",
+  "skillret": {
+    "repo": "ThakiCloud/SKILLRET-Edge-109M",
+    "kind": "embed",
+    "pooling": "cls",
+    "normalize": true,
+    "max_len": 256,
+    "query_prefix": "",
+    "passage_prefix": ""
+  },
+  "e5": {
+    "repo": "intfloat/e5-base-v2",
+    "kind": "embed",
+    "pooling": "mean",
+    "normalize": true,
+    "max_len": 512,
+    "query_prefix": "query: ",
+    "passage_prefix": "passage: "
+  },
+  "gliclass": {
+    "repo": "knowledgator/gliclass-base-v3.0",
+    "kind": "gliclass",
+    "max_len": 512,
+    "max_classes": 100,
+    "label_token": "<<LABEL>>",
+    "sep_token": "<<SEP>>",
+    "prompt_first": true,
+    "label_underscores_to_spaces": true,
+    "single_label": "softmax",
+    "multi_label": "sigmoid",
+    "multi_label_threshold": 0.5
+  }
+}
