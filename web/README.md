@@ -27,7 +27,9 @@ Run `node scripts/e2e.mjs http://127.0.0.1:5800 ./e2e-out` against a running pro
 | Design tokens and primitives | `app/globals.css`, described in `TOKENS.md` and `DESIGN-SYSTEM.md` |
 | Window, desktop, boot loader, charts | `components/retro/` |
 | Real company marks | `public/brands/` from `scripts/brands.config.json` (`node scripts/make-brands.mjs`) and the registry `lib/brands.ts` |
-| UI icons | `components/icons/generated.tsx` from `scripts/icons.config.json` (`node scripts/make-icons.mjs`, reads icon-kit's offline kits) |
+| UI icons | `components/icons/generated.tsx` from `scripts/icons.config.json` (`node scripts/make-icons.mjs`) |
+
+The icon and brand scripts read a folder of Iconify kit JSON files (icon-kit's `packages/core/kits`). Point `ICON_KIT_DIR` at it before running them. The generated files are committed, so you only need the kits to add an icon or a brand.
 | Hero art | `public/art/atom-halftone.svg` (`node scripts/make-halftone.mjs`) |
 
 Adding a demo example, a tool, a chart, an icon or a brand is one entry in its registry or config.

@@ -10,7 +10,7 @@ export function MarginCode({ className = '' }: { className?: string }) {
   return (
     <p
       aria-hidden="true"
-      className={`pointer-events-none m-0 hidden select-none break-all font-mono text-caption tracking-widest lg:block ${className}`}
+      className={`pointer-events-none m-0 hidden select-none break-all font-mono text-caption tracking-widest min-[1400px]:block ${className}`}
       style={{ writingMode: 'vertical-rl' }}
     >
       {code}
