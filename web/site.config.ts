@@ -17,9 +17,9 @@ export const site: SiteConfig = {
   version: '1.0.0',
   platform: 'Windows x64',
   repoUrl: 'https://github.com/harryx2011-boop/proton',
-  repoPublic: false,
+  repoPublic: true,
   mcpUrl: 'http://127.0.0.1:9400/mcp',
-  release: { state: 'coming-soon', downloadUrl: '' },
+  release: { state: 'available', downloadUrl: 'https://github.com/harryx2011-boop/proton/releases/download/v1.0.0/proton.vsix' },
 }
 
 export type DownloadState = { kind: 'coming-soon' } | { kind: 'available'; href: string }
